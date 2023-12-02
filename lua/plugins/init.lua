@@ -10,11 +10,3 @@ require("lazy").setup({
 
 
 -- Load plugin configs
-
-for file in lfs.dir("./configs") do
-    if file:match("%.lua$") then
-        local filePath = folderPath .. file
-        require(filePath)
-    end
-end
-
