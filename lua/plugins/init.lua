@@ -24,5 +24,11 @@ require("lazy").setup({
         lazy=false,
         dependencies = { "kyazdani42/nvim-web-devicons" },
         opts = require "plugins.configs.lualine",
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        lazy = false,
+        opts = require "plugins.configs.treesitter",
+
     }
 })
