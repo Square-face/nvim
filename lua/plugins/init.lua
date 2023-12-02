@@ -3,13 +3,14 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 
 require("lazy").setup({
     {
-        "ellisonleao/gruvbox.nvim",
-        priority = 1000, -- Load first
-        opts = require "plugins.configs.gruvbox",
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = require "plugins.configs.tokyonight",
 
-        -- Loading colorscheme
+        -- Load colorscheme
         config = function()
-              vim.cmd([[colorscheme gruvbox]])
+              vim.cmd([[colorscheme tokyonight-night]])
         end,
     },
 
@@ -17,28 +18,11 @@ require("lazy").setup({
     { "nvim/nvim-lspconfig", lazy=false },
     { "folke/neoconf.nvim", cmd = "Neoconf" },
     "folke/neodev.nvim",
+
     {
         "nvim-lualine/lualine.nvim",
         lazy=false,
         dependencies = { "kyazdani42/nvim-web-devicons" },
-        opts = { 
-            options = {
-                theme = 'gruvbox', -- Replace with the desired theme
-                icons_enabled = true,
-            },
-            sections = {
-                lualine_a = { 'mode' },
-                lualine_b = { 'branch' },
-                lualine_c = { 'filename' },
-                lualine_x = { 'encoding', 'fileformat', 'filetype' },
-                lualine_y = { 'progress' },
-                lualine_z = { 'location' },
-            },
-            tabline = {},
-            extensions = {}
-        },
+        opts = require "plugins.configs.lualine",
     }
 })
-
-
--- Load plugin configs
