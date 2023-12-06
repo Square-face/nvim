@@ -36,18 +36,63 @@ require("lazy").setup({
     },
 
 
+
     { -- LSP manager
         "nvim/nvim-lspconfig",
+
         lazy=false,
+
         config = function()
-            require "lsp.lspconfig"
+            require "lsp"
         end,
+
+        dependencies = {
+            { -- LSP Installer
+                "williamboman/mason-lspconfig.nvim",
+                cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+
+                opts = {
+                    ensure_installed = { "lua_ls", "rust_analyzer"  },
+                    automatic_installation = true,
+                },
+
+                dependencies = {
+                    { -- LSP installer
+                        "williamboman/mason.nvim",
+                        opts = {},
+                    },
+                },
+            },
+        }
     },
 
 
-    { -- LSP installer
-        "williamboman/mason.nvim",
-        cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
-        opts = {},
+
+    { -- Autocomplete
+        "hrsh7th/nvim-cmp",
+        lazy = false,
+        opts = require "plugins.configs.cmp",
+        dependecies = {
+            {
+                "windwp/nvim-autopairs",
+                opts = {
+                    fast_wrap = {},
+                    disable_filetype = { "TelescopePrompt", "vim" },
+                },
+                config = function(_, opts)
+                require("nvim-autopairs").setup(opts)
+
+                -- setup cmp for autopairs
+                local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+                require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+                end,
+              },
+            { 
+                "hrsh7th/cmp-cmdline",
+                "hrsh7th/cmp-path",
+                "hrsh7th/cmp-buffer",
+                "hrsh7th/cmp-nvim-lsp",
+            },
+        },
     },
 })
