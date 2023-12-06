@@ -33,6 +33,14 @@ require("lazy").setup({
         lazy = false,
         opts = require "plugins.configs.treesitter",
 
+
+    },
+
+    {
+        "nvim-tree/nvim-tree.lua",
+        lazy = true,
+        cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFile", "NvimTreeCollapse" },
+        opts = {}
     },
 
 
