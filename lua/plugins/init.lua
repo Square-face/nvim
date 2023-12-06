@@ -59,7 +59,7 @@ require("lazy").setup({
                 dependencies = {
                     { -- LSP installer
                         "williamboman/mason.nvim",
-                        opts = {},
+                        opts = require "plugins.configs.mason",
                     },
                 },
             },
@@ -94,5 +94,13 @@ require("lazy").setup({
                 "hrsh7th/cmp-nvim-lsp",
             },
         },
+    },
+
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        config = function()
+        end,
+        opts = {}
     },
 })
