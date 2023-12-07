@@ -1,6 +1,7 @@
 
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
+
 require("lazy").setup({
 
 
@@ -66,36 +67,40 @@ require("lazy").setup({
         }
     },
 
-
-
     { -- Autocomplete
         "hrsh7th/nvim-cmp",
         lazy = false,
-        opts = require "plugins.configs.cmp",
-        dependecies = {
-            {
+        config = function()
+            require 'cmp'.setup(require "plugins.configs.cmp")
+        end,
+        dependencies = {
+            { -- auto close parenthesis
                 "windwp/nvim-autopairs",
                 opts = {
                     fast_wrap = {},
                     disable_filetype = { "TelescopePrompt", "vim" },
                 },
                 config = function(_, opts)
-                require("nvim-autopairs").setup(opts)
+                    require("nvim-autopairs").setup(opts)
 
-                -- setup cmp for autopairs
-                local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-                require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+                    -- setup cmp for autopairs
+                    local cmp_autopairs = require "nvim-autopairs.completion.cmp"
+                    require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
                 end,
-              },
-            { 
-                "hrsh7th/cmp-cmdline",
-                "hrsh7th/cmp-path",
-                "hrsh7th/cmp-buffer",
-                "hrsh7th/cmp-nvim-lsp",
             },
+            { -- Snippets
+                "L3MON4D3/LuaSnip",
+                dependencies = "rafamadriz/friendly-snippets",
+                opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+            },
+            "hrsh7th/cmp-cmdline",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-nvim-lsp",
         },
     },
 
+    
     -- QOL
     { -- File explorer
         "nvim-tree/nvim-tree.lua",
