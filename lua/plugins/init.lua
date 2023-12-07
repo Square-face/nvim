@@ -20,7 +20,7 @@ require("lazy").setup({
 
     { -- Statusline
         "nvim-lualine/lualine.nvim",
-        lazy=false,
+        lazy = false,
         dependencies = { "kyazdani42/nvim-web-devicons" },
         opts = require "plugins.configs.lualine",
     },
@@ -32,23 +32,15 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
         opts = require "plugins.configs.treesitter",
-
-
     },
 
-    {
-        "nvim-tree/nvim-tree.lua",
-        lazy = true,
-        cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFile", "NvimTreeCollapse" },
-        opts = {}
-    },
 
 
 
     { -- LSP manager
-        "nvim/nvim-lspconfig",
+        "neovim/nvim-lspconfig",
 
-        lazy=false,
+        lazy = false,
 
         config = function()
             require "lsp"
@@ -104,11 +96,30 @@ require("lazy").setup({
         },
     },
 
-    {
+    -- QOL
+    { -- File explorer
+        "nvim-tree/nvim-tree.lua",
+        lazy = true,
+        cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFile", "NvimTreeCollapse" },
+        opts = {}
+    },
+
+    { -- Keybind helper
         "folke/which-key.nvim",
         event = "VeryLazy",
         config = function()
         end,
         opts = {}
     },
+
+    -- Other
+    { -- Preview markdown files
+      "iamcco/markdown-preview.nvim",
+      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+      build = "cd app && yarn install",
+      init = function()
+        vim.g.mkdp_filetypes = { "markdown" }
+      end,
+      ft = { "markdown" },
+    }
 })
