@@ -9,7 +9,7 @@ local M = {}
 --      ["<"] = { "<gv", "unindent line" }
 --   }
 -- }
-local function load_section_mapping(section)
+M.load_section_mapping = function(section)
     for mode, mappings in pairs(section) do
         for trigger, mapping in pairs(mappings) do
             vim.keymap.set(mode, trigger, mapping[1], {noremap = true})
@@ -18,8 +18,8 @@ local function load_section_mapping(section)
 end
 
 M.load_mappings = function()
-    load_section_mapping(require("core.mappings"))
-    load_section_mapping(require("core.keybinds"))
+    M.load_section_mapping(require("core.mappings"))
+    M.load_section_mapping(require("core.keybinds"))
 end
 
 return M

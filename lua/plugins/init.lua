@@ -69,10 +69,18 @@ require("lazy").setup({
 
     { -- Autocomplete
         "hrsh7th/nvim-cmp",
-        lazy = false,
-        config = function()
-            require 'cmp'.setup(require "plugins.configs.cmp")
+        lazy = true,
+        event = "InsertEnter",
+
+        opts = function()
+            return require "plugins.configs.cmp"
+
         end,
+
+        config = function(_, opts)
+            require("cmp").setup(opts)
+        end,
+
         dependencies = {
             { -- auto close parenthesis
                 "windwp/nvim-autopairs",
@@ -100,8 +108,10 @@ require("lazy").setup({
         },
     },
 
-    
+
+
     -- QOL
+
     { -- File explorer
         "nvim-tree/nvim-tree.lua",
         lazy = true,
@@ -109,7 +119,7 @@ require("lazy").setup({
         opts = {}
     },
 
-    {
+    { -- File search
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         dependencies = {
             'nvim-lua/plenary.nvim',

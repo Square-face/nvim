@@ -9,6 +9,9 @@ M.n = {
     ["fb"] = { telescope.buffers , "Find files" },
     ["fh"] = { telescope.help_tags , "Find files" },
     ["ft"] = { telescope.treesitter , "Find files" },
+
+    -- File explorer
+    ["<C-n>"] = { ":NvimTreeToggle<CR>", "Toggle file explorer" },
 }
 
 return M
