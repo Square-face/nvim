@@ -52,7 +52,7 @@ require("lazy").setup({
                 cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
 
                 opts = {
-                    ensure_installed = { "lua_ls", "rust_analyzer", "texlab" },
+                    ensure_installed = { "lua_ls", "rust_analyzer", "texlab", "clangd" },
                     automatic_installation = true,
                 },
 

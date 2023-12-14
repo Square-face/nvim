@@ -6,6 +6,8 @@ local lsp = require('lspconfig')
 
 lsp.lua_ls.setup(require 'lsp.settings.lua')
 lsp.rust_analyzer.setup(require 'lsp.settings.rust')
+lsp.texlab.setup({})
+lsp.clangd.setup({})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
