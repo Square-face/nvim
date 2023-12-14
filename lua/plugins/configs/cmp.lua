@@ -2,6 +2,7 @@ local luasnip = require("luasnip")
 local cmp = require "cmp"
 local utils = require "core.utils"
 
+
 local has_words_before = function()
   unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -38,41 +39,42 @@ local options = {
         return not context.in_treesitter_capture("comment")
             and not context.in_syntax_group("Comment")
         end
-    end
+    end,
+
+    mapping = {
+            ["<C-p>"] = cmp.mapping.select_prev_item(),
+            ["<C-n>"] = cmp.mapping.select_next_item(),
+            ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+            ["<C-f>"] = cmp.mapping.scroll_docs(4),
+            ["<C-Space>"] = cmp.mapping.complete(),
+            ["<C-e>"] = cmp.mapping.close(),
+            ["<CR>"] = cmp.mapping.confirm {
+              behavior = cmp.ConfirmBehavior.Insert,
+              select = true,
+            },
+            ["<Tab>"] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                elseif require("luasnip").expand_or_jumpable() then
+                    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+                else
+                    fallback()
+                end
+
+            end, { "i", "s", }),
+
+            ["<S-Tab>"] = cmp.mapping(function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                elseif require("luasnip").jumpable(-1) then
+                    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+                else
+                    fallback()
+                end
+
+            end, { "i", "s", }),
+    },
 }
-
-
--- Configure mappings
-
-local mappings = {
-    ["<Tab>"] = { function(fallback)
-        if cmp.visible() then
-            cmp.select_next_item()
-            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable() 
-            -- that way you will only jump inside the snippet region
-        elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
-        elseif has_words_before() then
-            cmp.complete()
-        else
-            fallback()
-        end
-    end, "Select next item" },
-
-    ["<S-Tab>"] = { function(fallback)
-        if cmp.visible() then
-            cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
-        else
-            fallback()
-        end
-    end, "Select previous item" },
-    ['<C-j>'] = { function() cmp.mapping.scroll_docs(-4) end, "Scroll down"},
-    ['<C-k>'] = { function() cmp.mapping.scroll_docs(4) end, "Scroll up"},
-}
-
-utils.load_section_mapping({i = mappings,})
 
 
 
