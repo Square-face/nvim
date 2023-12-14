@@ -1,7 +1,6 @@
 
 vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
 
-
 require("lazy").setup({
 
 
@@ -53,7 +52,7 @@ require("lazy").setup({
                 cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
 
                 opts = {
-                    ensure_installed = { "lua_ls", "rust_analyzer"  },
+                    ensure_installed = { "lua_ls", "rust_analyzer", "texlab" },
                     automatic_installation = true,
                 },
 
@@ -145,5 +144,17 @@ require("lazy").setup({
         vim.g.mkdp_filetypes = { "markdown" }
       end,
       ft = { "markdown" },
+    },
+
+    {
+        "lervag/vimtex",
+        cmd = { "VimTexCompile" }
+
+    },
+
+    {
+        "andweeb/presence.nvim",
+        event = "VeryLazy",
+        opts = require "plugins.configs.presence",
     }
 })
