@@ -17,6 +17,11 @@ require("lazy").setup({
         end,
     },
 
+    { -- Transparent background
+        "xiyaowong/transparent.nvim",
+        lazy = false,
+    },
+
 
     { -- Statusline
         "nvim-lualine/lualine.nvim",
@@ -52,7 +57,7 @@ require("lazy").setup({
                 cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
 
                 opts = {
-                    ensure_installed = { "lua_ls", "rust_analyzer", "texlab", "clangd" },
+                    ensure_installed = { "lua_ls", "rust_analyzer", "clangd" },
                     automatic_installation = true,
                 },
 
@@ -148,7 +153,7 @@ require("lazy").setup({
 
     {
         "lervag/vimtex",
-        cmd = { "VimTexCompile" }
+        cmd = { "VimtexCompile" }
 
     },
 

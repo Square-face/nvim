@@ -1,0 +1,6 @@
+PWD /Users/06limi01/.config/nvim/lua
+INPUT /usr/local/texlive/2023/texmf.cnf
+INPUT /usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /Users/06limi01/.config/nvim/lua/test.tex
+OUTPUT test.log

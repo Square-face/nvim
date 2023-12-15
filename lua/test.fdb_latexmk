@@ -1,0 +1,13 @@
+# Fdb version 4
+["pdflatex"] 1702587571 "/Users/06limi01/.config/nvim/lua/test.tex" "test.pdf" "test" 1702587571 2
+  "/Users/06limi01/.config/nvim/lua/test.tex" 1702587424 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "/usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf" 1677365944 40745 87bb86a62d462f93a1efc6b0c65c872e ""
+  "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1700142941 7883463 b2f160f31a5657a4c6e902af3b20eed4 ""
+  "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
+  "test.aux" 1702587571 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "test.tex" 1702587424 0 d41d8cd98f00b204e9800998ecf8427e ""
+  (generated)
+  "test.aux"
+  "test.log"
+  "test.pdf"
+  (rewritten before read)
