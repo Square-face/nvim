@@ -57,7 +57,7 @@ require("lazy").setup({
                 cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
 
                 opts = {
-                    ensure_installed = { "lua_ls", "rust_analyzer", "clangd" },
+                    ensure_installed = { "lua_ls", "rust_analyzer", "clangd", "pyright" },
                     automatic_installation = true,
                 },
 
