@@ -161,5 +161,11 @@ require("lazy").setup({
         "andweeb/presence.nvim",
         event = "VeryLazy",
         opts = require "plugins.configs.presence",
+    },
+    {
+        'akinsho/toggleterm.nvim',
+        version = "*",
+        config = true
     }
+
 })

@@ -16,4 +16,8 @@ M.n = {
     ["<C-l>"] = { "<C-w>l", "Move to right buffer" },
 }
 
+M.t = {
+    ["<Esc>"] = { "<C-\\><C-n>", "Exit terminal mode" },
+}
+
 return M
