@@ -12,6 +12,13 @@ M.n = {
 
     -- File explorer
     ["<C-n>"] = { ":NvimTreeToggle<CR>", "Toggle file explorer" },
+
+    -- Toggle Term
+    ["<C-t>"] = { ":ToggleTerm<CR>", "Toggle terminal"},
+}
+
+M.t = {
+    ["<C-t>"] = { "<C-\\><C-n>:ToggleTerm<CR>", "Toggle terminal"},
 }
 
 return M
