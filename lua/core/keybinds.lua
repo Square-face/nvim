@@ -12,9 +12,11 @@ M.n = {
 
     -- File explorer
     ["<C-n>"] = { ":NvimTreeToggle<CR>", "Toggle file explorer" },
+    ["<C-s>"] = { ":w<CR>", "Save current file"},
 
     -- Toggle Term
     ["<C-t>"] = { ":ToggleTerm<CR>", "Toggle terminal"},
+    ["<C-c>"] = { ":ToggleTerm<CR>cargo run<CR>", "Toggle terminal and cargo run"}
 }
 
 M.t = {
