@@ -31,16 +31,13 @@ require("lazy").setup({
     },
 
 
-
     -- Intrepreters
+
     { -- Parser
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
         opts = require "plugins.configs.treesitter",
     },
-
-
-
 
     { -- LSP manager
         "neovim/nvim-lspconfig",
@@ -57,7 +54,7 @@ require("lazy").setup({
                 cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
 
                 opts = {
-                    ensure_installed = { "lua_ls", "rust_analyzer", "clangd" },
+                    ensure_installed = { "lua_ls", "rust_analyzer", "clangd", "pyright", "texlab" },
                     automatic_installation = true,
                 },
 
