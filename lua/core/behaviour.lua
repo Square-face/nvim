@@ -10,7 +10,7 @@ vim.o.smartindent = true        -- Smart autoindentation
 vim.o.number = true             -- enable line numbers
 vim.o.relativenumber = true     -- enable relative line numbers
 
-vim.o.signcolumn = 'no'        -- Always show the signcolumn, to avoid shifting numbers when using Vim's default 'auto' setting
+vim.o.signcolumn = 'no'         -- Always show the signcolumn, to avoid shifting numbers when using Vim's default 'auto' setting
 vim.o.scrolloff = 3             -- Number of lines to keep above and below the cursor
 
-vim.o.clipboard = "unnamedplus"
+vim.o.clipboard = "unnamedplus" -- Syncs the neovim clipboard with system clipboard

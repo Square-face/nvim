@@ -16,6 +16,7 @@ M.n = {
 
     -- Toggle Term
     ["<C-t>"] = { ":ToggleTerm<CR>", "Toggle terminal"},
+    ["<C-c>"] = { ":ToggleTerm<CR>cargo run<CR>", "Toggle terminal and cargo run"}
 }
 
 M.t = {
