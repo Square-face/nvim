@@ -1,7 +1,7 @@
 -- Keybindings
 local M = {}
 local telescope = require('telescope.builtin')
-local terminal = require('toggleterm')
+
 
 M.n = {
     -- Telescope
@@ -14,22 +14,6 @@ M.n = {
     -- File explorer
     ["<C-n>"] = { ":NvimTreeToggle<CR>", "Toggle file explorer" },
 
-    -- Toggle Term
-    ["<C-t>"] = { terminal.toggle_command, "Toggle terminal"},
-    ["<C-c>"] = {
-        function ()
-            terminal.exec_command("cmd=\"cargo run\"")
-        end,
-        "Toggle terminal and cargo run"}
-}
-
-M.t = {
-    ["<C-t>"] = { "<C-\\><C-n>:ToggleTerm<CR>", "Toggle terminal"},
-    ["<Esc>"] = {
-        function ()
-            vim.cmd(':bd!')
-        end,
-        "Exit terminal mode" },
 }
 
 return M

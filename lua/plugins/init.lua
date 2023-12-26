@@ -214,10 +214,23 @@ require("lazy").setup({
     },
     {
         'akinsho/toggleterm.nvim',
-        version = "*",
-        config = {
-            direction = "float",
-        }
+        cmd = { "ToggleTerm", "ToggleExec" },
+        keys = {
+            { -- toggle general terminal
+                "<C-t>",
+                function()
+                    require('toggleterm').toggle_command()
+                end,
+                desc = "Toggle terminal",
+            },
+            { -- Language specific quick build keybind
+                "<C-c>",
+                ft = { "rust" },
+                function() require('toggleterm').exec_command("cmd=\"cargo run\"") end,
+                "Toggle terminal and run cargo"
+            },
+        },
+        lazy = true,
+        opts = require "plugins.configs.toggleterm",
     }
-
 })
