@@ -1,4 +1,6 @@
-local options = {
+local M = {}
+
+M.opts = {
     size=20,
     direction = "float",
     hide_numbers=true,
@@ -8,5 +10,20 @@ local options = {
         vim.api.nvim_buf_set_keymap(t.bufnr, 'n', '<Esc>', '<cmd>quit<CR>', {noremap=true, silent=true})
     end,
 }
+M.keys = {
+    { -- toggle general terminal
+        "<C-t>",
+        function()
+            require('toggleterm').toggle_command()
+        end,
+        desc = "Toggle terminal",
+    },
+    { -- Language specific quick build keybind
+        "<C-c>",
+        ft = { "rust" },
+        function() require('toggleterm').exec_command("cmd=\"cargo run\"") end,
+        "Toggle terminal and run cargo"
+    },
+}
 
-return options
+return M

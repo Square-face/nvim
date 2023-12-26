@@ -34,4 +34,9 @@ local options = {
   on_highlights = function(highlights, colors) end,
 }
 
-return options
+return {
+    config = function()
+          vim.cmd([[colorscheme tokyonight-night]])
+    end,
+    opts=options
+}

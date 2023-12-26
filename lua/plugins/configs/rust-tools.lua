@@ -1,4 +1,6 @@
-local options = {
+local M = {}
+
+M.opts = {
     -- configuration options go here
     tools = {
         inlay_hints = {
@@ -69,4 +71,4 @@ local options = {
     }, -- rust-analyzer options
 }
 
-return options;
+return M

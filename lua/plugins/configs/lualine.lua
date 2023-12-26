@@ -1,4 +1,4 @@
-local options = { 
+local options = {
     options = {
         theme = 'tokyonight',
         icons_enabled = true,
@@ -15,4 +15,8 @@ local options = {
     extensions = {}
 }
 
-return options
+
+return {
+    dependencies = { "kyazdani42/nvim-web-devicons" },
+    opts = options
+}

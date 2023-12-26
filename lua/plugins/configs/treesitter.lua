@@ -1,4 +1,6 @@
-local options = {
+local M = {}
+
+M.opts = {
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
     ensure_installed = { "all" },
 
@@ -14,4 +16,4 @@ local options = {
 }
 
 
-return options
+return M

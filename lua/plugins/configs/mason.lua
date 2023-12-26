@@ -1,4 +1,5 @@
-local options = {
+local M = {}
+M.opts = {
     ---@since 1.0.0
 
     ---@since 1.0.0
@@ -132,4 +133,4 @@ local options = {
     },
 }
 
-return options
+return M
