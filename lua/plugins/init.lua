@@ -169,8 +169,10 @@ require("lazy").setup({
     { -- File explorer
         "nvim-tree/nvim-tree.lua",
         lazy = true,
-        cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeFocus", "NvimTreeFindFile", "NvimTreeCollapse" },
-        opts = {}
+        opts = {},
+        keys = {
+            { "<C-n>", "<cmd>NvimTreeToggle<CR>", desc="Toggle file explorer", silent=true, noremap=true }
+        },
     },
 
     { -- File search
@@ -180,6 +182,13 @@ require("lazy").setup({
         },
         lazy = true,
         cmd = { "Telescope" },
+        keys = {
+            { "ff", function() require"telescope.builtin".find_files() end, desc="Find files"},
+            { "fg", function() require"telescope.builtin".live_grep() end, desc="Find files with grep"},
+            { "fb", function() require"telescope.builtin".buffers() end, desc="Find files"},
+            { "fh", function() require"telescope.builtin".help_tags() end, desc="Find files"},
+            { "ft", function() require"telescope.builtin".treesitter() end, desc="Find files"},
+        }
     },
 
     { -- Keybind helper
@@ -214,10 +223,23 @@ require("lazy").setup({
     },
     {
         'akinsho/toggleterm.nvim',
-        version = "*",
-        config = {
-            direction = "float",
-        }
+        cmd = { "ToggleTerm", "ToggleExec" },
+        keys = {
+            { -- toggle general terminal
+                "<C-t>",
+                function()
+                    require('toggleterm').toggle_command()
+                end,
+                desc = "Toggle terminal",
+            },
+            { -- Language specific quick build keybind
+                "<C-c>",
+                ft = { "rust" },
+                function() require('toggleterm').exec_command("cmd=\"cargo run\"") end,
+                "Toggle terminal and run cargo"
+            },
+        },
+        lazy = true,
+        opts = require "plugins.configs.toggleterm",
     }
-
 })
