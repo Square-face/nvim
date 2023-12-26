@@ -68,7 +68,7 @@ require("lazy").setup({
         }
     },
 
-    { -- Inlay hints
+    { -- Rust-tools
         "simrat39/rust-tools.nvim",
 
         lazy = false,
