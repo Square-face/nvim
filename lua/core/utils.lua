@@ -19,7 +19,6 @@ end
 
 M.load_mappings = function()
     M.load_section_mapping(require("core.mappings"))
-    M.load_section_mapping(require("core.keybinds"))
 end
 
 return M
