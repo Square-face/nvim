@@ -2,6 +2,7 @@
 local M = {}
 local telescope = require('telescope.builtin')
 local terminal = require('toggleterm')
+local rust_tools = require('rust-tools')
 
 M.n = {
     -- Telescope
@@ -16,11 +17,14 @@ M.n = {
 
     -- Toggle Term
     ["<C-t>"] = { terminal.toggle_command, "Toggle terminal"},
-    ["<C-c>"] = {
+    ["<leader>r"] = {
         function ()
             terminal.exec_command("cmd=\"cargo run\"")
         end,
-        "Toggle terminal and cargo run"}
+        "Toggle terminal and cargo run"},
+
+    -- Rust Tools
+    ["<leader>d"] = { rust_tools.hover_actions.hover_actions, { buffer = bufnr }, "Rust-tools hover action"}
 }
 
 M.t = {
