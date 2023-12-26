@@ -13,7 +13,6 @@ M.n = {
 
     -- File explorer
     ["<C-n>"] = { ":NvimTreeToggle<CR>", "Toggle file explorer" },
-    ["<C-s>"] = { ":w<CR>", "Save current file"},
 
     -- Toggle Term
     ["<C-t>"] = { terminal.toggle_command, "Toggle terminal"},
