@@ -1,6 +1,6 @@
 local M = {}
 M.config = function()
-    require "lsp"
+    require 'lsp'
 end
 
 return M

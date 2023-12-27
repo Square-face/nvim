@@ -66,6 +66,6 @@ local options = {
 
 
 return {
-    dependencies = { "kyazdani42/nvim-web-devicons" },
+    dependencies = { 'kyazdani42/nvim-web-devicons' },
     opts = options
 }

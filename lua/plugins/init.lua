@@ -75,7 +75,7 @@ require('lazy').setup({
 
         'simrat39/rust-tools.nvim',
         lazy = true,
-        ft = "rust",
+        ft = 'rust',
 
     }, 'plugins.configs.rust-tools'),
 
@@ -143,9 +143,9 @@ require('lazy').setup({
 
         'akinsho/toggleterm.nvim',
         lazy = true,
-        cmd = { "ToggleTerm", "ToggleExec" },
+        cmd = { 'ToggleTerm', 'ToggleExec' },
 
-    }, "plugins.configs.toggleterm"),
+    }, 'plugins.configs.toggleterm'),
 
 
     {
@@ -158,41 +158,41 @@ require('lazy').setup({
 
     { -- Keybind helper
 
-        "folke/which-key.nvim",
+        'folke/which-key.nvim',
         lazy = true,
-        event = "VeryLazy",
+        event = 'VeryLazy',
 
     },
 
     -- Other
 
     { -- Preview markdown files
-      "iamcco/markdown-preview.nvim",
-      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-      build = "cd app && yarn install",
+      'iamcco/markdown-preview.nvim',
+      cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+      build = 'cd app && yarn install',
       init = function()
-        vim.g.mkdp_filetypes = { "markdown" }
+        vim.g.mkdp_filetypes = { 'markdown' }
         vim.g.mkdp_auto_start = 1
         vim.g.mkdp_open_to_the_world = 1
         vim.g.mkdp_open_ip = '0.0.0.0'
       end,
-      ft = { "markdown" },
+      ft = { 'markdown' },
     },
 
     {
 
-        "lervag/vimtex",
+        'lervag/vimtex',
         lazy = true,
-        cmd = { "VimtexCompile" }
+        cmd = { 'VimtexCompile' }
 
     },
 
     extended({
 
-        "andweeb/presence.nvim",
+        'andweeb/presence.nvim',
         lazy = true,
-        event = "VeryLazy",
+        event = 'VeryLazy',
 
-    }, "plugins.configs.presence"),
+    }, 'plugins.configs.presence'),
 
 })

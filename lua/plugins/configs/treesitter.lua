@@ -1,8 +1,8 @@
 local M = {}
 
 M.opts = {
-    -- A list of parser names, or "all" (the five listed parsers should always be installed)
-    ensure_installed = { "all" },
+    -- A list of parser names, or 'all' (the five listed parsers should always be installed)
+    ensure_installed = { 'all' },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
