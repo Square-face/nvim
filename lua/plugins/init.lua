@@ -20,7 +20,7 @@ require('lazy').setup({
 
     { -- Transparent background
 
-        "xiyaowong/transparent.nvim",
+        'xiyaowong/transparent.nvim',
         lazy = false,
 
     },
@@ -28,10 +28,10 @@ require('lazy').setup({
 
     extended({ -- Statusline
 
-        "nvim-lualine/lualine.nvim",
+        'nvim-lualine/lualine.nvim',
         lazy = false,
 
-    }, "plugins.configs.lualine"),
+    }, 'plugins.configs.lualine'),
 
 
 
@@ -39,75 +39,75 @@ require('lazy').setup({
 
     extended({ -- Parser
 
-        "nvim-treesitter/nvim-treesitter",
+        'nvim-treesitter/nvim-treesitter',
         lazy = false,
 
-    }, "plugins.configs.treesitter"),
+    }, 'plugins.configs.treesitter'),
 
 
     extended({ -- LSP manager
 
-        "neovim/nvim-lspconfig",
+        'neovim/nvim-lspconfig',
         lazy = false,
-        dependencies = { "williamboman/mason.nvim" },
+        dependencies = { 'williamboman/mason.nvim' },
 
-    }, "plugins.configs.lsp-config"),
+    }, 'plugins.configs.lsp-config'),
 
 
     extended({ -- LSP installer
 
-        "williamboman/mason.nvim",
+        'williamboman/mason.nvim',
         lazy = true,
 
-    }, "plugins.configs.mason"),
+    }, 'plugins.configs.mason'),
 
 
     extended({ -- LSP bridge
 
-        "williamboman/mason-lspconfig.nvim",
+        'williamboman/mason-lspconfig.nvim',
         lazy = true,
-        dependencies = { "williamboman/mason.nvim" },
+        dependencies = { 'williamboman/mason.nvim' },
 
-    }, "plugins.configs.mason-lsp"),
+    }, 'plugins.configs.mason-lsp'),
 
 
     extended({ -- Rust-tools
 
-        "simrat39/rust-tools.nvim",
+        'simrat39/rust-tools.nvim',
         lazy = true,
         ft = "rust",
 
-    }, "plugins.configs.rust-tools"),
+    }, 'plugins.configs.rust-tools'),
 
 
     extended({ -- Autocomplete
-        "hrsh7th/nvim-cmp",
+        'hrsh7th/nvim-cmp',
         lazy = true,
-        event = "InsertEnter",
+        event = 'InsertEnter',
         dependencies = {
-            "windwp/nvim-autopairs",
-            "L3MON4D3/LuaSnip",
-            "hrsh7th/cmp-cmdline",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-nvim-lsp",
+            'windwp/nvim-autopairs',
+            'L3MON4D3/LuaSnip',
+            'hrsh7th/cmp-cmdline',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-nvim-lsp',
         },
-    }, "plugins.configs.cmp"),
+    }, 'plugins.configs.cmp'),
 
 
     extended({ -- auto close parenthesis
 
-        "windwp/nvim-autopairs",
+        'windwp/nvim-autopairs',
         lazy = true,
 
-    }, "plugins.configs.autopairs"),
+    }, 'plugins.configs.autopairs'),
 
 
     { -- Snippets
-        "L3MON4D3/LuaSnip",
+        'L3MON4D3/LuaSnip',
         lazy = true,
-        dependencies = "rafamadriz/friendly-snippets",
-        opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+        dependencies = 'rafamadriz/friendly-snippets',
+        opts = { history = true, updateevents = 'TextChanged,TextChangedI' },
     },
 
 
@@ -115,10 +115,10 @@ require('lazy').setup({
     -- QOL
 
     { -- File explorer
-        "nvim-tree/nvim-tree.lua",
+        'nvim-tree/nvim-tree.lua',
         lazy = true,
         keys = {
-            { "<C-n>", "<cmd>NvimTreeToggle<CR>", desc="Toggle file explorer", silent=true, noremap=true }
+            { '<C-n>', '<cmd>NvimTreeToggle<CR>', desc='Toggle file explorer', silent=true, noremap=true }
         },
         opts = {},
     },
@@ -129,13 +129,13 @@ require('lazy').setup({
             'nvim-lua/plenary.nvim',
         },
         lazy = true,
-        cmd = { "Telescope" },
+        cmd = { 'Telescope' },
         keys = {
-            { "ff", function() require"telescope.builtin".find_files() end, desc="Find files"},
-            { "fg", function() require"telescope.builtin".live_grep() end, desc="Find files with grep"},
-            { "fb", function() require"telescope.builtin".buffers() end, desc="Find buffers"},
-            { "fh", function() require"telescope.builtin".help_tags() end, desc="Find help"},
-            { "ft", function() require"telescope.builtin".treesitter() end, desc="Find symbols (treesitter)"},
+            { 'ff', function() require'telescope.builtin'.find_files() end, desc='Find files'},
+            { 'fg', function() require'telescope.builtin'.live_grep() end, desc='Find files with grep'},
+            { 'fb', function() require'telescope.builtin'.buffers() end, desc='Find buffers'},
+            { 'fh', function() require'telescope.builtin'.help_tags() end, desc='Find help'},
+            { 'ft', function() require'telescope.builtin'.treesitter() end, desc='Find symbols (treesitter)'},
         }
     },
 
@@ -151,7 +151,8 @@ require('lazy').setup({
     {
         'tpope/vim-surround',
         lazy = true,
-        keys = { 'cs', 'ds', 'ys' }
+        keys = { 'cs', 'ds', 'ys' },
+        dependencies = {'tpope/vim-repeat'},
     },
 
 
