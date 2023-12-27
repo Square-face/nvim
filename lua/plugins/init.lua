@@ -1,10 +1,10 @@
 
-vim.g.mapleader = ' ' -- Make sure to set `mapleader` before lazy so your mappings are correct
+-- Set leader key for keybinds
+vim.g.mapleader = ' '
 
 local extended = require 'core.utils'.extended
 
-
-
+-- Lazy load plugins
 require('lazy').setup({
 
 
@@ -74,7 +74,6 @@ require('lazy').setup({
     extended({ -- Rust-tools
 
         'simrat39/rust-tools.nvim',
-        lazy = true,
         ft = 'rust',
 
     }, 'plugins.configs.rust-tools'),
@@ -82,7 +81,6 @@ require('lazy').setup({
 
     extended({ -- Autocomplete
         'hrsh7th/nvim-cmp',
-        lazy = true,
         event = 'InsertEnter',
         dependencies = {
             'windwp/nvim-autopairs',
@@ -91,6 +89,7 @@ require('lazy').setup({
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-nvim-lsp',
+            "zbirenbaum/copilot-cmp",
         },
     }, 'plugins.configs.cmp'),
 
@@ -110,13 +109,28 @@ require('lazy').setup({
         opts = { history = true, updateevents = 'TextChanged,TextChangedI' },
     },
 
+    {
+        "zbirenbaum/copilot-cmp",
+
+        config = function ()
+            require("copilot_cmp").setup({fix_pairs=true})
+        end,
+
+        dependencies = {'zbirenbaum/copilot.lua'}
+    },
 
 
     -- QOL
 
+
+    extended({
+        'zbirenbaum/copilot.lua',
+        cmd = "Copilot",
+
+    }, "plugins.configs.copilot"),
+
     { -- File explorer
         'nvim-tree/nvim-tree.lua',
-        lazy = true,
         keys = {
             { '<C-n>', '<cmd>NvimTreeToggle<CR>', desc='Toggle file explorer', silent=true, noremap=true }
         },
@@ -128,7 +142,6 @@ require('lazy').setup({
         dependencies = {
             'nvim-lua/plenary.nvim',
         },
-        lazy = true,
         cmd = { 'Telescope' },
         keys = {
             { 'ff', function() require'telescope.builtin'.find_files() end, desc='Find files'},
@@ -142,7 +155,6 @@ require('lazy').setup({
     extended({ -- Terminal
 
         'akinsho/toggleterm.nvim',
-        lazy = true,
         cmd = { 'ToggleTerm', 'ToggleExec' },
 
     }, 'plugins.configs.toggleterm'),
@@ -150,7 +162,6 @@ require('lazy').setup({
 
     {
         'tpope/vim-surround',
-        lazy = true,
         keys = { 'cs', 'ds', 'ys' },
         dependencies = {'tpope/vim-repeat'},
     },
@@ -159,7 +170,6 @@ require('lazy').setup({
     { -- Keybind helper
 
         'folke/which-key.nvim',
-        lazy = true,
         event = 'VeryLazy',
 
     },
@@ -182,7 +192,6 @@ require('lazy').setup({
     {
 
         'lervag/vimtex',
-        lazy = true,
         cmd = { 'VimtexCompile' }
 
     },
@@ -190,7 +199,6 @@ require('lazy').setup({
     extended({
 
         'andweeb/presence.nvim',
-        lazy = true,
         event = 'VeryLazy',
 
     }, 'plugins.configs.presence'),
