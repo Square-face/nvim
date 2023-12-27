@@ -1,21 +1,21 @@
 
-vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.mapleader = ' ' -- Make sure to set `mapleader` before lazy so your mappings are correct
 
-local extended = require "core.utils".extended
+local extended = require 'core.utils'.extended
 
 
 
-require("lazy").setup({
+require('lazy').setup({
 
 
     -- UI 
     extended({ -- Color theme
 
-        "folke/tokyonight.nvim",
+        'folke/tokyonight.nvim',
         lazy = false,
         priority = 1000,
 
-    }, "plugins.configs.tokyonight"),
+    }, 'plugins.configs.tokyonight'),
 
 
     { -- Transparent background
@@ -139,6 +139,22 @@ require("lazy").setup({
         }
     },
 
+    extended({ -- Terminal
+
+        'akinsho/toggleterm.nvim',
+        lazy = true,
+        cmd = { "ToggleTerm", "ToggleExec" },
+
+    }, "plugins.configs.toggleterm"),
+
+
+    {
+        'tpope/vim-surround',
+        lazy = true,
+        keys = { 'cs', 'ds', 'ys' }
+    },
+
+
     { -- Keybind helper
 
         "folke/which-key.nvim",
@@ -178,11 +194,4 @@ require("lazy").setup({
 
     }, "plugins.configs.presence"),
 
-    extended({
-
-        'akinsho/toggleterm.nvim',
-        lazy = true,
-        cmd = { "ToggleTerm", "ToggleExec" },
-
-    }, "plugins.configs.toggleterm"),
 })
