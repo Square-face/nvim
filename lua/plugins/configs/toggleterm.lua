@@ -29,7 +29,7 @@ M.keys = {
             -- build and run
             require('toggleterm').exec_command('cmd=\'cargo run\'')
         end,
-        'Save, open terminal, compile and run '
+        'Save, open terminal, compile and run'
     },
 
     { -- Language specific quick build+test keybind
@@ -42,7 +42,19 @@ M.keys = {
             -- build and run
             require('toggleterm').exec_command('cmd=\'cargo test\'')
         end,
-        'Save, open terminal, compile and run '
+        'Save, open terminal, compile and test'
+    },
+    { -- Language specific quick build keybind
+        '<C-b>',
+        ft = { 'rust' }, -- supported languages
+        function()
+            -- Save
+            vim.cmd('w')
+
+            -- build and run
+            require('toggleterm').exec_command('cmd=\'cargo build\'')
+        end,
+        'Save, open terminal, compile'
     }
 }
 
