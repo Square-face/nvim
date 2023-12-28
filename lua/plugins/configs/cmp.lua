@@ -6,6 +6,7 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
 end
 
+
 M.config = function()
 	local cmp = require 'cmp'
 
@@ -17,25 +18,25 @@ M.config = function()
         },
 
         window = {
-            completion = cmp.config.window.bordered(),
-            documentation = cmp.config.window.bordered(),
+            -- completion = cmp.config.window.bordered(),
+            -- documentation = cmp.config.window.bordered(),
         },
 
         sources = cmp.config.sources({
-            { name = 'copilot' }, -- AI
+            { name = "codeium" },
             { name = 'nvim_lsp' }, -- Language Server
             { name = 'luasnip' }, -- Snippet Engine
         }, {
             { name = 'buffer' },
         }),
+
         sorting = {
             priority_weight = 2,
             comparators = {
-                require('copilot_cmp.comparators').prioritize,
 
                 -- Below is the default comparitor list and order for nvim-cmp
                 cmp.config.compare.offset,
-                -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+                cmp.config.compare.scopes, --this is commented in nvim-cmp too
                 cmp.config.compare.exact,
                 cmp.config.compare.score,
                 cmp.config.compare.recently_used,
@@ -56,7 +57,7 @@ M.config = function()
                 return true
             end
 
-            return not context.in_treesitter_capture('comment') and not context.in_syntax_group('Comment')
+            return true --not context.in_treesitter_capture('comment') and not context.in_syntax_group('Comment')
         end,
 
         mapping = {
@@ -91,6 +92,14 @@ M.config = function()
                     end
 
                 end, { 'i', 's', }),
+        },
+        formatting = {
+            format = require('lspkind').cmp_format({
+                mode = "symbol",
+                maxwidth = 50,
+                ellipsis_char = '...',
+                symbol_map = { Codeium = "", }
+            })
         },
     })
 end

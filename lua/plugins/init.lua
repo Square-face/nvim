@@ -81,23 +81,24 @@ require('lazy').setup({
 
     extended({ -- Autocomplete
         'hrsh7th/nvim-cmp',
-        event = 'InsertEnter',
+        lazy = true,
         dependencies = {
             'windwp/nvim-autopairs',
             'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
             'hrsh7th/cmp-cmdline',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-nvim-lsp',
-            "zbirenbaum/copilot-cmp",
+            'onsails/lspkind.nvim',
         },
     }, 'plugins.configs.cmp'),
 
 
     extended({ -- auto close parenthesis
 
-        'windwp/nvim-autopairs',
         lazy = true,
+        'windwp/nvim-autopairs',
 
     }, 'plugins.configs.autopairs'),
 
@@ -105,29 +106,25 @@ require('lazy').setup({
     { -- Snippets
         'L3MON4D3/LuaSnip',
         lazy = true,
+        build = "make install_jsregexp",
         dependencies = 'rafamadriz/friendly-snippets',
         opts = { history = true, updateevents = 'TextChanged,TextChangedI' },
     },
 
     {
-        "zbirenbaum/copilot-cmp",
-
-        config = function ()
-            require("copilot_cmp").setup({fix_pairs=true})
-        end,
-
-        dependencies = {'zbirenbaum/copilot.lua'}
+        "Exafunction/codeium.nvim",
+        event = 'InsertEnter',
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "hrsh7th/nvim-cmp",
+        },
+        config = function()
+            require("codeium").setup({})
+        end
     },
-
 
     -- QOL
 
-
-    extended({
-        'zbirenbaum/copilot.lua',
-        cmd = "Copilot",
-
-    }, "plugins.configs.copilot"),
 
     { -- File explorer
         'nvim-tree/nvim-tree.lua',
