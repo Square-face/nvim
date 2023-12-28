@@ -70,12 +70,15 @@ require("lazy").setup({
 
     { -- Rust-tools
         "simrat39/rust-tools.nvim",
-        lazy = false,
 
         ft = "rust",
         opts = function()
             require "plugins.configs.rust-tools"
         end,
+
+        keys = {
+            {"<leader>d", function() require('rust-tools').hover_actions.hover_actions() end, desc="rust-tools hover action" },
+        },
     },
 
     { -- Autocomplete
