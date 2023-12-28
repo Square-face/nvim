@@ -18,9 +18,10 @@ M.keys = {
         end,
         desc = 'Toggle terminal',
     },
-    { -- Language specific quick build keybind
+
+    { -- Language specific quick build+run keybind
         '<C-c>',
-        ft = { 'rust' },
+        ft = { 'rust' }, -- supported languages
         function()
             -- Save
             vim.cmd('w')
@@ -30,6 +31,19 @@ M.keys = {
         end,
         'Save, open terminal, compile and run '
     },
+
+    { -- Language specific quick build+test keybind
+        '<C-x>',
+        ft = { 'rust' }, -- supported languages
+        function()
+            -- Save
+            vim.cmd('w')
+
+            -- build and run
+            require('toggleterm').exec_command('cmd=\'cargo test\'')
+        end,
+        'Save, open terminal, compile and run '
+    }
 }
 
 return M
