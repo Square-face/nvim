@@ -1,4 +1,6 @@
-local options = {
+local M = {}
+
+M.opts = {
     -- configuration options go here
     tools = {
         inlay_hints = {
@@ -14,12 +16,12 @@ local options = {
             show_parameter_hints = true,
 
             -- prefix for parameter hints
-            -- default: "<-"
-            parameter_hints_prefix = "<- ",
+            -- default: '<-'
+            parameter_hints_prefix = '<- ',
 
             -- prefix for all the other hints (type, chaining)
-            -- default: "=>"
-            other_hints_prefix = ": ",
+            -- default: '=>'
+            other_hints_prefix = ': ',
 
             -- whether to align to the length of the longest line in the file
             max_len_align = false,
@@ -34,21 +36,21 @@ local options = {
             right_align_padding = 7,
 
             -- The color of the hints
-            highlight = "Comment",
+            highlight = 'Comment',
         },
         hover_actions = {
 
             -- the border that is used for the hover window
             -- see vim.api.nvim_open_win()
             border = {
-                { "╭", "FloatBorder" },
-                { "─", "FloatBorder" },
-                { "╮", "FloatBorder" },
-                { "│", "FloatBorder" },
-                { "╯", "FloatBorder" },
-                { "─", "FloatBorder" },
-                { "╰", "FloatBorder" },
-                { "│", "FloatBorder" },
+                { '╭', 'FloatBorder' },
+                { '─', 'FloatBorder' },
+                { '╮', 'FloatBorder' },
+                { '│', 'FloatBorder' },
+                { '╯', 'FloatBorder' },
+                { '─', 'FloatBorder' },
+                { '╰', 'FloatBorder' },
+                { '│', 'FloatBorder' },
             },
 
             -- Maximal width of the hover window. Nil means no max.
@@ -69,4 +71,4 @@ local options = {
     }, -- rust-analyzer options
 }
 
-return options;
+return M

@@ -1,138 +1,135 @@
 
-vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappings are correct
+-- Set leader key for keybinds
+vim.g.mapleader = ' '
 
-require("lazy").setup({
+local extended = require 'core.utils'.extended
+
+-- Lazy load plugins
+require('lazy').setup({
 
 
     -- UI 
-    { -- Main theme
-        "folke/tokyonight.nvim",
+    extended({ -- Color theme
+
+        'folke/tokyonight.nvim',
         lazy = false,
         priority = 1000,
-        opts = require "plugins.configs.tokyonight",
 
-        -- Load colorscheme
-        config = function()
-              vim.cmd([[colorscheme tokyonight-night]])
-        end,
-    },
+    }, 'plugins.configs.tokyonight'),
+
 
     { -- Transparent background
-        "xiyaowong/transparent.nvim",
+
+        'xiyaowong/transparent.nvim',
         lazy = false,
+
     },
 
 
-    { -- Statusline
-        "nvim-lualine/lualine.nvim",
+    extended({ -- Statusline
+
+        'nvim-lualine/lualine.nvim',
         lazy = false,
-        dependencies = { "kyazdani42/nvim-web-devicons" },
-        opts = require "plugins.configs.lualine",
-    },
+
+    }, 'plugins.configs.lualine'),
+
 
 
     -- Intrepreters
 
-    { -- Parser
-        "nvim-treesitter/nvim-treesitter",
-        lazy = false,
-        opts = require "plugins.configs.treesitter",
-    },
+    extended({ -- Parser
 
-    { -- LSP manager
-        "neovim/nvim-lspconfig",
-
+        'nvim-treesitter/nvim-treesitter',
         lazy = false,
 
-        config = function()
-            require "lsp"
-        end,
+    }, 'plugins.configs.treesitter'),
 
-        dependencies = {
-            { -- LSP Installer
-                "williamboman/mason-lspconfig.nvim",
-                cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
 
-                opts = {
-                    ensure_installed = { "lua_ls", "rust_analyzer", "clangd", "pyright", "texlab" },
-                    automatic_installation = true,
-                },
+    extended({ -- LSP manager
+        'neovim/nvim-lspconfig',
+        lazy = false,
+        dependencies = { 'williamboman/mason.nvim' },
 
-                dependencies = {
-                    { -- LSP installer
-                        "williamboman/mason.nvim",
-                        opts = require "plugins.configs.mason",
-                    },
-                },
-            },
-        }
-    },
+    }, 'plugins.configs.lsp-config'),
 
-    { -- Rust-tools
-        "simrat39/rust-tools.nvim",
+    extended({ -- LSP installer
 
-        ft = "rust",
-        opts = function()
-            require "plugins.configs.rust-tools"
-        end,
-
-        keys = {
-            {"<leader>d", function() require('rust-tools').hover_actions.hover_actions() end, desc="rust-tools hover action" },
-        },
-    },
-
-    { -- Autocomplete
-        "hrsh7th/nvim-cmp",
+        'williamboman/mason.nvim',
         lazy = true,
-        event = "InsertEnter",
 
-        opts = function()
-            return require "plugins.configs.cmp"
+    }, 'plugins.configs.mason'),
 
-        end,
 
-        config = function(_, opts)
-            require("cmp").setup(opts)
-        end,
+    extended({ -- LSP bridge
 
+        'williamboman/mason-lspconfig.nvim',
+        lazy = true,
+        dependencies = { 'williamboman/mason.nvim' },
+
+    }, 'plugins.configs.mason-lsp'),
+
+
+    extended({ -- Rust-tools
+
+        'simrat39/rust-tools.nvim',
+        ft = 'rust',
+
+    }, 'plugins.configs.rust-tools'),
+
+
+    extended({ -- Autocomplete
+        'hrsh7th/nvim-cmp',
+        lazy = true,
         dependencies = {
-            { -- auto close parenthesis
-                "windwp/nvim-autopairs",
-                opts = {
-                    fast_wrap = {},
-                    disable_filetype = { "TelescopePrompt", "vim" },
-                },
-                config = function(_, opts)
-                    require("nvim-autopairs").setup(opts)
-
-                    -- setup cmp for autopairs
-                    local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-                    require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
-                end,
-            },
-            { -- Snippets
-                "L3MON4D3/LuaSnip",
-                dependencies = "rafamadriz/friendly-snippets",
-                opts = { history = true, updateevents = "TextChanged,TextChangedI" },
-            },
-            "hrsh7th/cmp-cmdline",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-nvim-lsp",
+            'windwp/nvim-autopairs',
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
+            'hrsh7th/cmp-cmdline',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-nvim-lsp',
+            'onsails/lspkind.nvim',
         },
+    }, 'plugins.configs.cmp'),
+
+
+    extended({ -- auto close parenthesis
+
+        lazy = true,
+        'windwp/nvim-autopairs',
+
+    }, 'plugins.configs.autopairs'),
+
+
+    { -- Snippets
+        'L3MON4D3/LuaSnip',
+        lazy = true,
+        build = "make install_jsregexp",
+        dependencies = 'rafamadriz/friendly-snippets',
+        opts = { history = true, updateevents = 'TextChanged,TextChangedI' },
     },
 
-
+    {
+        "Exafunction/codeium.nvim",
+        event = 'InsertEnter',
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "hrsh7th/nvim-cmp",
+        },
+        config = function()
+            require("codeium").setup({})
+        end
+    },
 
     -- QOL
 
+
     { -- File explorer
-        "nvim-tree/nvim-tree.lua",
-        lazy = true,
-        opts = {},
+        'nvim-tree/nvim-tree.lua',
         keys = {
-            { "<C-n>", "<cmd>NvimTreeToggle<CR>", desc="Toggle file explorer", silent=true, noremap=true }
+            { '<C-n>', '<cmd>NvimTreeToggle<CR>', desc='Toggle file explorer', silent=true, noremap=true }
         },
+        opts = {},
     },
 
     { -- File search
@@ -140,66 +137,65 @@ require("lazy").setup({
         dependencies = {
             'nvim-lua/plenary.nvim',
         },
-        lazy = true,
-        cmd = { "Telescope" },
+        cmd = { 'Telescope' },
         keys = {
-            { "ff", function() require"telescope.builtin".find_files() end, desc="Find files"},
-            { "fg", function() require"telescope.builtin".live_grep() end, desc="Find files with grep"},
-            { "fb", function() require"telescope.builtin".buffers() end, desc="Find files"},
-            { "fh", function() require"telescope.builtin".help_tags() end, desc="Find files"},
-            { "ft", function() require"telescope.builtin".treesitter() end, desc="Find files"},
+            { 'ff', function() require'telescope.builtin'.find_files() end, desc='Find files'},
+            { 'fg', function() require'telescope.builtin'.live_grep() end, desc='Find files with grep'},
+            { 'fb', function() require'telescope.builtin'.buffers() end, desc='Find buffers'},
+            { 'fh', function() require'telescope.builtin'.help_tags() end, desc='Find help'},
+            { 'ft', function() require'telescope.builtin'.treesitter() end, desc='Find symbols (treesitter)'},
         }
     },
 
+    extended({ -- Terminal
+
+        'akinsho/toggleterm.nvim',
+        cmd = { 'ToggleTerm', 'ToggleExec' },
+
+    }, 'plugins.configs.toggleterm'),
+
+
+    {
+        'tpope/vim-surround',
+        keys = { 'cs', 'ds', 'ys' },
+        dependencies = {'tpope/vim-repeat'},
+    },
+
+
     { -- Keybind helper
-        "folke/which-key.nvim",
-        event = "VeryLazy",
-        config = function()
-        end,
-        opts = {}
+
+        'folke/which-key.nvim',
+        event = 'VeryLazy',
+
     },
 
     -- Other
+
     { -- Preview markdown files
-      "iamcco/markdown-preview.nvim",
-      cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-      build = "cd app && yarn install",
+      'iamcco/markdown-preview.nvim',
+      cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+      build = 'cd app && yarn install',
       init = function()
-        vim.g.mkdp_filetypes = { "markdown" }
+        vim.g.mkdp_filetypes = { 'markdown' }
+        vim.g.mkdp_auto_start = 1
+        vim.g.mkdp_open_to_the_world = 1
+        vim.g.mkdp_open_ip = '0.0.0.0'
       end,
-      ft = { "markdown" },
+      ft = { 'markdown' },
     },
 
     {
-        "lervag/vimtex",
-        cmd = { "VimtexCompile" }
+
+        'lervag/vimtex',
+        cmd = { 'VimtexCompile' }
 
     },
 
-    {
-        "andweeb/presence.nvim",
-        event = "VeryLazy",
-        opts = require "plugins.configs.presence",
-    },
-    {
-        'akinsho/toggleterm.nvim',
-        cmd = { "ToggleTerm", "ToggleExec" },
-        keys = {
-            { -- toggle general terminal
-                "<C-t>",
-                function()
-                    require('toggleterm').toggle_command()
-                end,
-                desc = "Toggle terminal",
-            },
-            { -- Language specific quick build keybind
-                "<C-c>",
-                ft = { "rust" },
-                function() require('toggleterm').exec_command("cmd=\"cargo run\"") end,
-                "Toggle terminal and run cargo"
-            },
-        },
-        lazy = true,
-        opts = require "plugins.configs.toggleterm",
-    }
+    extended({
+
+        'andweeb/presence.nvim',
+        event = 'VeryLazy',
+
+    }, 'plugins.configs.presence'),
+
 })
