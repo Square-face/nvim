@@ -21,8 +21,14 @@ M.keys = {
     { -- Language specific quick build keybind
         '<C-c>',
         ft = { 'rust' },
-        function() require('toggleterm').exec_command('cmd=\'cargo run\'') end,
-        'Toggle terminal and run cargo'
+        function()
+            -- Save
+            vim.cmd('w')
+
+            -- build and run
+            require('toggleterm').exec_command('cmd=\'cargo run\'')
+        end,
+        'Save, open terminal, compile and run '
     },
 }
 
