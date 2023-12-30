@@ -1,4 +1,3 @@
-
 -- Set leader key for keybinds
 vim.g.mapleader = ' '
 
@@ -8,7 +7,7 @@ local extended = require 'core.utils'.extended
 require('lazy').setup({
 
 
-    -- UI 
+    -- UI
     extended({ -- Color theme
 
         'folke/tokyonight.nvim',
@@ -111,17 +110,16 @@ require('lazy').setup({
         opts = { history = true, updateevents = 'TextChanged,TextChangedI' },
     },
 
-    {
-        "Exafunction/codeium.nvim",
+    extended({
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
         event = 'InsertEnter',
+
         dependencies = {
             "nvim-lua/plenary.nvim",
             "hrsh7th/nvim-cmp",
         },
-        config = function()
-            require("codeium").setup({})
-        end
-    },
+    }, "plugins.configs.copilot"),
 
     -- QOL
 
@@ -129,23 +127,24 @@ require('lazy').setup({
     { -- File explorer
         'nvim-tree/nvim-tree.lua',
         keys = {
-            { '<C-n>', '<cmd>NvimTreeToggle<CR>', desc='Toggle file explorer', silent=true, noremap=true }
+            { '<C-n>', '<cmd>NvimTreeToggle<CR>', desc = 'Toggle file explorer', silent = true, noremap = true }
         },
         opts = {},
     },
 
     { -- File search
-        'nvim-telescope/telescope.nvim', tag = '0.1.5',
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.5',
         dependencies = {
             'nvim-lua/plenary.nvim',
         },
         cmd = { 'Telescope' },
         keys = {
-            { 'ff', function() require'telescope.builtin'.find_files() end, desc='Find files'},
-            { 'fg', function() require'telescope.builtin'.live_grep() end, desc='Find files with grep'},
-            { 'fb', function() require'telescope.builtin'.buffers() end, desc='Find buffers'},
-            { 'fh', function() require'telescope.builtin'.help_tags() end, desc='Find help'},
-            { 'ft', function() require'telescope.builtin'.treesitter() end, desc='Find symbols (treesitter)'},
+            { 'ff', function() require 'telescope.builtin'.find_files() end, desc = 'Find files' },
+            { 'fg', function() require 'telescope.builtin'.live_grep() end, desc = 'Find files with grep' },
+            { 'fb', function() require 'telescope.builtin'.buffers() end,   desc = 'Find buffers' },
+            { 'fh', function() require 'telescope.builtin'.help_tags() end, desc = 'Find help' },
+            { 'ft', function() require 'telescope.builtin'.treesitter() end, desc = 'Find symbols (treesitter)' },
         }
     },
 
@@ -160,7 +159,7 @@ require('lazy').setup({
     {
         'tpope/vim-surround',
         keys = { 'cs', 'ds', 'ys' },
-        dependencies = {'tpope/vim-repeat'},
+        dependencies = { 'tpope/vim-repeat' },
     },
 
 
@@ -174,16 +173,16 @@ require('lazy').setup({
     -- Other
 
     { -- Preview markdown files
-      'iamcco/markdown-preview.nvim',
-      cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-      build = 'cd app && yarn install',
-      init = function()
-        vim.g.mkdp_filetypes = { 'markdown' }
-        vim.g.mkdp_auto_start = 1
-        vim.g.mkdp_open_to_the_world = 1
-        vim.g.mkdp_open_ip = '0.0.0.0'
-      end,
-      ft = { 'markdown' },
+        'iamcco/markdown-preview.nvim',
+        cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+        build = 'cd app && yarn install',
+        init = function()
+            vim.g.mkdp_filetypes = { 'markdown' }
+            vim.g.mkdp_auto_start = 1
+            vim.g.mkdp_open_to_the_world = 1
+            vim.g.mkdp_open_ip = '0.0.0.0'
+        end,
+        ft = { 'markdown' },
     },
 
     {
