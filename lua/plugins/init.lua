@@ -46,13 +46,11 @@ require('lazy').setup({
 
 
     extended({ -- LSP manager
-
         'neovim/nvim-lspconfig',
         lazy = false,
         dependencies = { 'williamboman/mason.nvim' },
 
     }, 'plugins.configs.lsp-config'),
-
 
     extended({ -- LSP installer
 
