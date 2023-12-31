@@ -20,7 +20,7 @@ M.keys = {
     },
 
     { -- Language specific quick build+run keybind
-        '<C-c>',
+        '<leader>r',
         ft = { 'rust' }, -- supported languages
         function()
             -- Save
@@ -33,7 +33,7 @@ M.keys = {
     },
 
     { -- Language specific quick build+test keybind
-        '<C-x>',
+        '<leader>t',
         ft = { 'rust' }, -- supported languages
         function()
             -- Save
@@ -45,7 +45,7 @@ M.keys = {
         'Save, open terminal, compile and test'
     },
     { -- Language specific quick build keybind
-        '<C-b>',
+        '<leader>b',
         ft = { 'rust' }, -- supported languages
         function()
             -- Save
