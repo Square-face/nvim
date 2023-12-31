@@ -45,13 +45,11 @@ require('lazy').setup({
 
 
     extended({ -- LSP manager
-
         'neovim/nvim-lspconfig',
         lazy = false,
         dependencies = { 'williamboman/mason.nvim' },
 
     }, 'plugins.configs.lsp-config'),
-
 
     extended({ -- LSP installer
 
@@ -69,6 +67,11 @@ require('lazy').setup({
 
     }, 'plugins.configs.mason-lsp'),
 
+    { -- glsl syntax highlighting
+        'tikhomirov/vim-glsl',
+        lazy = true,
+        ft = 'glsl'
+    },
 
     extended({ -- Rust-tools
 
@@ -76,7 +79,6 @@ require('lazy').setup({
         ft = 'rust',
 
     }, 'plugins.configs.rust-tools'),
-
 
     extended({ -- Autocomplete
         'hrsh7th/nvim-cmp',

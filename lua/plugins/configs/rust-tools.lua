@@ -71,4 +71,8 @@ M.opts = {
     }, -- rust-analyzer options
 }
 
+M.keys = {
+    { "<leader>d", function() require('rust-tools').hover_actions.hover_actions() end, "rust-tools hover action" },
+}
+
 return M

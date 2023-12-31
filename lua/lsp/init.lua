@@ -9,6 +9,7 @@ lsp.rust_analyzer.setup(require 'lsp.settings.rust')
 lsp.texlab.setup(require 'lsp.settings.texlab')
 lsp.pyright.setup({})
 lsp.clangd.setup({})
+lsp.glsl_analyzer.setup({})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

@@ -7,7 +7,7 @@ M.cmd = {
 }
 
 M.opts = {
-    ensure_installed = { 'lua_ls', 'rust_analyzer', 'clangd', 'pyright', 'texlab' },
+    ensure_installed = { 'lua_ls', 'rust_analyzer', 'clangd', 'pyright', 'texlab', 'glsl_analyzer' },
     automatic_installation = true,
 }
 
