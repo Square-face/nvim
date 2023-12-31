@@ -24,10 +24,10 @@ M.opts = {
             other_hints_prefix = ': ',
 
             -- whether to align to the length of the longest line in the file
-            max_len_align = false,
+            max_len_align = true,
 
             -- padding from the left if max_len_align is true
-            max_len_align_padding = 1,
+            max_len_align_padding = 2,
 
             -- whether to align to the extreme right or not
             right_align = false,
@@ -38,41 +38,12 @@ M.opts = {
             -- The color of the hints
             highlight = 'Comment',
         },
-        hover_actions = {
-
-            -- the border that is used for the hover window
-            -- see vim.api.nvim_open_win()
-            border = {
-                { '╭', 'FloatBorder' },
-                { '─', 'FloatBorder' },
-                { '╮', 'FloatBorder' },
-                { '│', 'FloatBorder' },
-                { '╯', 'FloatBorder' },
-                { '─', 'FloatBorder' },
-                { '╰', 'FloatBorder' },
-                { '│', 'FloatBorder' },
-            },
-
-            -- Maximal width of the hover window. Nil means no max.
-            max_width = 50,
-
-            -- Maximal height of the hover window. Nil means no max.
-            max_height = 20,
-
-            -- whether the hover action window gets automatically focused
-            -- default: false
-            auto_focus = false,
-        },
     },
     server = {
         -- standalone file support
         -- setting it to false may improve startup time
         standalone = true,
     }, -- rust-analyzer options
-}
-
-M.keys = {
-    { "<leader>d", function() require('rust-tools').hover_actions.hover_actions() end, "rust-tools hover action" },
 }
 
 return M
