@@ -19,6 +19,7 @@ M.n = {
 
     -- File
     ['<C-s>'] = { ':w<CR>', 'Save current file'},
+    ['<Esc>'] = { ':noh<CR>', 'Remove search highlight'},
 }
 
 
