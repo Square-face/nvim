@@ -32,6 +32,10 @@ require('lazy').setup({
 
     }, 'plugins.configs.lualine'),
 
+    extended({ -- Hover
+        'lewis6991/hover.nvim'
+    }, 'plugins.configs.hover'),
+
 
 
     -- Intrepreters
@@ -143,9 +147,9 @@ require('lazy').setup({
         cmd = { 'Telescope' },
         keys = {
             { 'ff', function() require 'telescope.builtin'.find_files() end, desc = 'Find files' },
-            { 'fg', function() require 'telescope.builtin'.live_grep() end, desc = 'Find files with grep' },
-            { 'fb', function() require 'telescope.builtin'.buffers() end,   desc = 'Find buffers' },
-            { 'fh', function() require 'telescope.builtin'.help_tags() end, desc = 'Find help' },
+            { 'fg', function() require 'telescope.builtin'.live_grep() end,  desc = 'Find files with grep' },
+            { 'fb', function() require 'telescope.builtin'.buffers() end,    desc = 'Find buffers' },
+            { 'fh', function() require 'telescope.builtin'.help_tags() end,  desc = 'Find help' },
             { 'ft', function() require 'telescope.builtin'.treesitter() end, desc = 'Find symbols (treesitter)' },
         }
     },
