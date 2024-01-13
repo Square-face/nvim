@@ -7,7 +7,7 @@ M.cmd = {
 }
 
 M.opts = {
-    ensure_installed = { 'lua_ls', 'rust_analyzer', 'clangd', 'pyright', 'texlab', 'glsl_analyzer', 'arduino-language-server' },
+    ensure_installed = { 'lua_ls', 'rust_analyzer', 'clangd', 'pyright', 'texlab', 'glsl_analyzer', 'json-lsp' },
     automatic_installation = true,
 }
 
