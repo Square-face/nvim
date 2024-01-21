@@ -32,6 +32,11 @@ require('lazy').setup({
 
     }, 'plugins.configs.lualine'),
 
+    extended({
+        'romgrk/barbar.nvim',
+        lazy = false,
+    }, "plugins.configs.barbar"),
+
     extended({ -- Hover
         'lewis6991/hover.nvim'
     }, 'plugins.configs.hover'),
@@ -42,8 +47,8 @@ require('lazy').setup({
         lazy = false,
         opts = {},
         keys = {
-            { 'n', function() require("todo-comments").jump_next() end, { desc = "Next todo comment" } },
-            { 'N', function() require("todo-comments").jump_prev() end, { desc = "Previous todo comment" } },
+            { '<leader> n', function() require("todo-comments").jump_next() end, { desc = "Next todo comment" } },
+            { '<leader> N', function() require("todo-comments").jump_prev() end, { desc = "Previous todo comment" } },
         }
     },
 
