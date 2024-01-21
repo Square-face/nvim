@@ -71,6 +71,11 @@ require('lazy').setup({
 
     }, 'plugins.configs.lsp-config'),
 
+    extended({
+        'mfussenegger/nvim-dap',
+        event = 'VeryLazy',
+    }, 'plugins.configs.dap'),
+
     extended({ -- LSP installer
 
         'williamboman/mason.nvim',
@@ -93,12 +98,13 @@ require('lazy').setup({
         ft = 'glsl'
     },
 
-    extended({ -- Rust-tools
+    { -- Rust-tools
 
-        'simrat39/rust-tools.nvim',
+        'mrcjkb/rustaceanvim',
+        version = '^3',
         ft = 'rust',
 
-    }, 'plugins.configs.rust-tools'),
+    },
 
     extended({ -- Autocomplete
         'hrsh7th/nvim-cmp',
