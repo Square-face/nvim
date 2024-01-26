@@ -24,7 +24,6 @@ M.keys = {
     { '<A-c>',     ':BufferClose<CR>' },
     { '<A-w>',     ':BufferWipeout<CR>' },
     { '<A-p>',     ':BufferPin<CR>' },
-    { '<A-u>',     ':BufferUnpin<CR>' },
     { '<A-s>',     ':BufferPick<CR>' },
     { '<A-a>',     ':BufferOrderByBufferNumber<CR>' },
     { '<A-Tab>',   ':BufferNext<CR>' },
