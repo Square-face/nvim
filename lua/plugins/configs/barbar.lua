@@ -21,7 +21,7 @@ M.keys = {
     { '<A-8>',     ':BufferGoto 8<CR>' },
     { '<A-9>',     ':BufferGoto 9<CR>' },
     { '<A-0>',     ':BufferLast<CR>' },
-    { '<A-c>',     ':BufferClose<CR>' },
+    { '<A-->',     ':BufferClose<CR>' },
     { '<A-w>',     ':BufferWipeout<CR>' },
     { '<A-p>',     ':BufferPin<CR>' },
     { '<A-u>',     ':BufferUnpin<CR>' },
