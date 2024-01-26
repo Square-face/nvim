@@ -25,5 +25,9 @@ M.n = {
     ['<A-+>'] = { ':enew<CR>', 'Open a new buffer' }
 }
 
+M.t = {
+    ['<Esc>'] = { '<C-\\><C-n>', 'Exit terminal mode' },
+}
+
 
 return M
