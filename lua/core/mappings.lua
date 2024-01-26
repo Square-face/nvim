@@ -22,5 +22,9 @@ M.n = {
     ['<Esc>'] = { ':noh<CR>', 'Remove search highlight'},
 }
 
+M.t = {
+    ['<Esc>'] = { '<C-\\><C-n>', 'Exit terminal mode' },
+}
+
 
 return M
