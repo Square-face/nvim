@@ -9,8 +9,8 @@ M.init = function() vim.g.barbar_auto_setup = false end
 M.keys = {
     { '<A-,>',     ':BufferPrevious<CR>' },
     { '<A-.>',     ':BufferNext<CR>' },
-    { '<A-<>',     ':BufferMovePrevious<CR>' },
-    { '<A->>',     ':BufferMoveNext<CR>' },
+    { '<A-;>',     ':BufferMovePrevious<CR>' },
+    { '<A-:>',     ':BufferMoveNext<CR>' },
     { '<A-1>',     ':BufferGoto 1<CR>' },
     { '<A-2>',     ':BufferGoto 2<CR>' },
     { '<A-3>',     ':BufferGoto 3<CR>' },
