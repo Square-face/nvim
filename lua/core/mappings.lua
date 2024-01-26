@@ -20,6 +20,13 @@ M.n = {
     -- File
     ['<C-s>'] = { ':w<CR>', 'Save current file'},
     ['<Esc>'] = { ':noh<CR>', 'Remove search highlight'},
+
+    -- Buffers
+    ['<A-+>'] = { ':enew<CR>', 'Open a new buffer' }
+}
+
+M.t = {
+    ['<Esc>'] = { '<C-\\><C-n>', 'Exit terminal mode' },
 }
 
 

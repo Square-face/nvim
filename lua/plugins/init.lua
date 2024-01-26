@@ -32,6 +32,11 @@ require('lazy').setup({
 
     }, 'plugins.configs.lualine'),
 
+    extended({
+        'romgrk/barbar.nvim',
+        lazy = false,
+    }, "plugins.configs.barbar"),
+
     extended({ -- Hover
         'lewis6991/hover.nvim'
     }, 'plugins.configs.hover'),
@@ -42,8 +47,8 @@ require('lazy').setup({
         lazy = false,
         opts = {},
         keys = {
-            { 'n', function() require("todo-comments").jump_next() end, { desc = "Next todo comment" } },
-            { 'N', function() require("todo-comments").jump_prev() end, { desc = "Previous todo comment" } },
+            { '<leader> n', function() require("todo-comments").jump_next() end, { desc = "Next todo comment" } },
+            { '<leader> N', function() require("todo-comments").jump_prev() end, { desc = "Previous todo comment" } },
         }
     },
 
@@ -65,6 +70,11 @@ require('lazy').setup({
         dependencies = { 'williamboman/mason.nvim' },
 
     }, 'plugins.configs.lsp-config'),
+
+    extended({
+        'mfussenegger/nvim-dap',
+        event = 'VeryLazy',
+    }, 'plugins.configs.dap'),
 
     extended({ -- LSP installer
 
@@ -88,12 +98,13 @@ require('lazy').setup({
         ft = 'glsl'
     },
 
-    extended({ -- Rust-tools
+    { -- Rust-tools
 
-        'simrat39/rust-tools.nvim',
+        'mrcjkb/rustaceanvim',
+        version = '^3',
         ft = 'rust',
 
-    }, 'plugins.configs.rust-tools'),
+    },
 
     extended({ -- Autocomplete
         'hrsh7th/nvim-cmp',

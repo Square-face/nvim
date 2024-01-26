@@ -5,7 +5,6 @@
 local lsp = require('lspconfig')
 
 lsp.lua_ls.setup(require 'lsp.settings.lua')
-lsp.rust_analyzer.setup(require 'lsp.settings.rust')
 lsp.texlab.setup(require 'lsp.settings.texlab')
 lsp.pyright.setup({})
 lsp.clangd.setup({})

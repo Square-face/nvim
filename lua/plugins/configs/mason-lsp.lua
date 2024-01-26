@@ -1,7 +1,6 @@
 local M = {}
 
 
-M.build = ':Mason'
 M.cmd = {
     'Mason', 'MasonUpdate', 'MasonInstall', 'MasonUninstall', 'MasonUninstallAll', 'MasonLog'
 }
