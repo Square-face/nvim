@@ -206,11 +206,19 @@ require('lazy').setup({
         build = 'cd app && yarn install',
         init = function()
             vim.g.mkdp_filetypes = { 'markdown' }
-            vim.g.mkdp_auto_start = 1
+            vim.g.mkdp_auto_start = 0
             vim.g.mkdp_open_to_the_world = 1
             vim.g.mkdp_open_ip = '0.0.0.0'
         end,
         ft = { 'markdown' },
+    },
+
+    { -- Markdown presentation
+        'aca/marp.nvim',
+        keys = {
+            { '<leader>mp', function() require('marp.nvim').ServerStart() end, desc = 'Start Marp Server' },
+            { '<leader>me', function() require('marp.nvim').ServerStop() end, desc = 'Stop Mark Server' },
+        },
     },
 
     {

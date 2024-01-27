@@ -6,7 +6,7 @@ M.cmd = {
 }
 
 M.opts = {
-    ensure_installed = { 'lua_ls', 'rust_analyzer', 'clangd', 'pyright', 'texlab', 'glsl_analyzer', 'json-lsp' },
+    ensure_installed = { 'lua_ls', 'rust_analyzer', 'clangd', 'pyright', 'texlab', 'json-lsp', 'emmet-language-server' },
     automatic_installation = true,
 }
 
