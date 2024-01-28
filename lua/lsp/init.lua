@@ -6,6 +6,7 @@ local lsp = require('lspconfig')
 
 lsp.lua_ls.setup(require 'lsp.settings.lua')
 lsp.texlab.setup(require 'lsp.settings.texlab')
+lsp.emmet_language_server.setup(require 'lsp.settings.emmet')
 lsp.pyright.setup({})
 lsp.clangd.setup({})
 lsp.glsl_analyzer.setup({})

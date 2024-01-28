@@ -14,3 +14,4 @@ vim.o.signcolumn = 'no'         -- Always show the signcolumn, to avoid shifting
 vim.o.scrolloff = 3             -- Number of lines to keep above and below the cursor
 
 vim.o.clipboard = 'unnamedplus' -- Syncs the neovim clipboard with system clipboard
+
