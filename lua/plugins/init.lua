@@ -72,7 +72,7 @@ require('lazy').setup({
     extended({ -- LSP manager
         'neovim/nvim-lspconfig',
         lazy = false,
-        dependencies = { 'williamboman/mason.nvim' },
+        dependencies = { 'williamboman/mason-lspconfig.nvim' },
 
     }, 'plugins.configs.lsp-config'),
 

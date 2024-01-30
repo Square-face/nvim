@@ -11,6 +11,7 @@ lsp.pyright.setup({})
 lsp.clangd.setup({})
 lsp.glsl_analyzer.setup({})
 lsp.jsonls.setup({})
+lsp.typos_lsp.setup{}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
