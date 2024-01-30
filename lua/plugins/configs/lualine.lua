@@ -1,7 +1,9 @@
+local M = {};
 
-local options = {
+
+M.opts = {
     options = {
-        theme = 'tokyonight',
+        theme = 'catppuccin',
         icons_enabled = true,
     },
 
@@ -64,8 +66,7 @@ local options = {
     extensions = { 'toggleterm' }
 }
 
+M.dependencies = { 'kyazdani42/nvim-web-devicons' }
 
-return {
-    dependencies = { 'kyazdani42/nvim-web-devicons' },
-    opts = options
-}
+
+return M

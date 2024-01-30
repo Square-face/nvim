@@ -10,19 +10,12 @@ require('lazy').setup({
     -- UI
     extended({ -- Color theme
 
-        'folke/tokyonight.nvim',
+        'catppuccin/nvim',
+        name = 'catppuccin',
         lazy = false,
-        priority = 1000,
+        priority = 100,
 
     }, 'plugins.configs.tokyonight'),
-
-
-    { -- Transparent background
-
-        'xiyaowong/transparent.nvim',
-        lazy = false,
-
-    },
 
 
     extended({ -- Statusline
@@ -35,6 +28,7 @@ require('lazy').setup({
     extended({
         'romgrk/barbar.nvim',
         lazy = false,
+
     }, "plugins.configs.barbar"),
 
     extended({ -- Hover
@@ -217,7 +211,7 @@ require('lazy').setup({
         'aca/marp.nvim',
         keys = {
             { '<leader>mp', function() require('marp.nvim').ServerStart() end, desc = 'Start Marp Server' },
-            { '<leader>me', function() require('marp.nvim').ServerStop() end, desc = 'Stop Mark Server' },
+            { '<leader>me', function() require('marp.nvim').ServerStop() end,  desc = 'Stop Mark Server' },
         },
     },
 
