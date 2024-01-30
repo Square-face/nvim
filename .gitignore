@@ -1,6 +1,9 @@
 # Lazy.nvim lock file
 lazy-lock.json
 
+# tmux log files
+*.log
+
 # Compiled Lua sources
 luac.out
 
