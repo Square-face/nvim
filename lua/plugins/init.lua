@@ -10,8 +10,8 @@ require('lazy').setup({
     -- UI
     extended({ -- Color theme
 
-        'catppuccin/nvim',
-        name = 'catppuccin',
+        'folke/tokyonight.nvim',
+        name = 'tokyonight',
         lazy = false,
         priority = 100,
 
