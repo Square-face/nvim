@@ -3,7 +3,7 @@ local M = {};
 
 M.opts = {
     options = {
-        theme = 'catppuccin',
+        theme = 'tokyonight',
         icons_enabled = true,
     },
 
