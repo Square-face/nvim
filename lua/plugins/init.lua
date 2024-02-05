@@ -226,5 +226,4 @@ require('lazy').setup({
         event = 'VeryLazy',
 
     }, 'plugins.configs.presence'),
-
 })
