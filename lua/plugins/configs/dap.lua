@@ -1,15 +1,5 @@
 local M = {}
 
-vim.g.rustaceanvim = {
-  -- LSP configuration
-  server = {
-    settings = {
-      -- rust-analyzer language server configuration
-      ['rust-analyzer'] = {
-      },
-    },
-  },
-}
 
 
 

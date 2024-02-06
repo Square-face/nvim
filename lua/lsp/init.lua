@@ -9,10 +9,28 @@ lsp.texlab.setup(require 'lsp.settings.texlab')
 lsp.ltex.setup({})
 lsp.emmet_language_server.setup(require 'lsp.settings.emmet')
 lsp.pyright.setup({})
-lsp.clangd.setup({})
 lsp.glsl_analyzer.setup({})
 lsp.jsonls.setup({})
 lsp.typos_lsp.setup {}
+lsp.clangd.setup()
+
+
+vim.g.rustaceanvim = {
+    tools = {
+        float_win_config = {
+            auto_focus = true,
+        },
+    },
+
+    -- LSP configuration
+    server = {
+        settings = {
+            -- rust-analyzer language server configuration
+            ['rust-analyzer'] = {
+            },
+        },
+    },
+}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -42,7 +60,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, opts)
         vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+        vim.keymap.set({ 'n', 'v' }, '<leader>ca', function()
+            -- check if file type is rust
+            if vim.bo.filetype == 'rust' then
+                vim.cmd.RustLsp { 'hover', 'actions' }
+            else
+                vim.lsp.buf.code_action()
+            end
+        end, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set('n', '<leader>f', function()
             vim.lsp.buf.format { async = true }
