@@ -12,7 +12,10 @@ lsp.pyright.setup({})
 lsp.glsl_analyzer.setup({})
 lsp.jsonls.setup({})
 lsp.typos_lsp.setup {}
-lsp.clangd.setup()
+-- Skip setting up clang if on a linux
+if vim.fn.has('linux') == 0 then
+    lsp.clangd.setup()
+end
 
 
 vim.g.rustaceanvim = {
