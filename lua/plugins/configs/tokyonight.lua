@@ -39,6 +39,7 @@ M.opts = {
 M.config = function(_, opts)
     require('tokyonight').setup(opts)
     vim.cmd[[colorscheme tokyonight-night]]
+    vim.cmd[[hi MsgArea guibg=#16161e]]
 end
 
 return M
