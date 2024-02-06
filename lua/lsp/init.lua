@@ -14,7 +14,7 @@ lsp.jsonls.setup({})
 lsp.typos_lsp.setup {}
 -- Skip setting up clang if on a linux
 if vim.fn.has('linux') == 0 then
-    lsp.clangd.setup()
+    lsp.clangd.setup({})
 end
 
 

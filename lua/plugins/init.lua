@@ -46,16 +46,11 @@ require('lazy').setup({
         'lewis6991/hover.nvim'
     }, 'plugins.configs.hover'),
 
-    {
+    extended({
         'folke/todo-comments.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' },
         lazy = false,
-        opts = {},
-        keys = {
-            { '<leader> n', function() require("todo-comments").jump_next() end, { desc = "Next todo comment" } },
-            { '<leader> N', function() require("todo-comments").jump_prev() end, { desc = "Previous todo comment" } },
-        }
-    },
+    }, 'plugins.configs.todo-comments'),
 
 
 
