@@ -154,7 +154,14 @@ require('lazy').setup({
         },
     }, "plugins.configs.copilot"),
 
+
     -- QOL
+
+    { -- Better looking folds
+        'kevinhwang91/nvim-ufo',
+        dependencies = 'kevinhwang91/promise-async',
+        opts = {},
+    },
 
 
     { -- File explorer

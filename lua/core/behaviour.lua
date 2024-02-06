@@ -15,3 +15,10 @@ vim.o.scrolloff = 3             -- Number of lines to keep above and below the c
 
 vim.o.clipboard = 'unnamedplus' -- Syncs the neovim clipboard with system clipboard
 
+vim.o.foldcolumn = '1'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
