@@ -11,17 +11,21 @@ require('lazy').setup({
     extended({ -- Color theme
 
         'folke/tokyonight.nvim',
+        name = 'tokyonight',
         lazy = false,
-        priority = 1000,
+        priority = 100,
 
     }, 'plugins.configs.tokyonight'),
 
+    {
+        'alexghergh/nvim-tmux-navigation',
 
-    { -- Transparent background
-
-        'xiyaowong/transparent.nvim',
-        lazy = false,
-
+        keys = {
+            { '<C-l>', function() require('nvim-tmux-navigation').NvimTmuxNavigateRight() end },
+            { '<C-h>', function() require('nvim-tmux-navigation').NvimTmuxNavigateLeft() end },
+            { '<C-k>', function() require('nvim-tmux-navigation').NvimTmuxNavigateUp() end },
+            { '<C-j>', function() require('nvim-tmux-navigation').NvimTmuxNavigateDown() end },
+        }
     },
 
 
@@ -32,25 +36,21 @@ require('lazy').setup({
 
     }, 'plugins.configs.lualine'),
 
-    extended({
+    extended({ -- Tabs
         'romgrk/barbar.nvim',
         lazy = false,
+
     }, "plugins.configs.barbar"),
 
     extended({ -- Hover
         'lewis6991/hover.nvim'
     }, 'plugins.configs.hover'),
 
-    {
+    extended({
         'folke/todo-comments.nvim',
         dependencies = { 'nvim-lua/plenary.nvim' },
         lazy = false,
-        opts = {},
-        keys = {
-            { '<leader> n', function() require("todo-comments").jump_next() end, { desc = "Next todo comment" } },
-            { '<leader> N', function() require("todo-comments").jump_prev() end, { desc = "Previous todo comment" } },
-        }
-    },
+    }, 'plugins.configs.todo-comments'),
 
 
 
@@ -67,7 +67,7 @@ require('lazy').setup({
     extended({ -- LSP manager
         'neovim/nvim-lspconfig',
         lazy = false,
-        dependencies = { 'williamboman/mason.nvim' },
+        dependencies = { 'williamboman/mason-lspconfig.nvim' },
 
     }, 'plugins.configs.lsp-config'),
 
@@ -149,7 +149,14 @@ require('lazy').setup({
         },
     }, "plugins.configs.copilot"),
 
+
     -- QOL
+
+    { -- Better looking folds
+        'kevinhwang91/nvim-ufo',
+        dependencies = 'kevinhwang91/promise-async',
+        opts = {},
+    },
 
 
     { -- File explorer
@@ -206,11 +213,19 @@ require('lazy').setup({
         build = 'cd app && yarn install',
         init = function()
             vim.g.mkdp_filetypes = { 'markdown' }
-            vim.g.mkdp_auto_start = 1
+            vim.g.mkdp_auto_start = 0
             vim.g.mkdp_open_to_the_world = 1
             vim.g.mkdp_open_ip = '0.0.0.0'
         end,
         ft = { 'markdown' },
+    },
+
+    { -- Markdown presentation
+        'aca/marp.nvim',
+        keys = {
+            { '<leader>mp', function() require('marp.nvim').ServerStart() end, desc = 'Start Marp Server' },
+            { '<leader>me', function() require('marp.nvim').ServerStop() end,  desc = 'Stop Mark Server' },
+        },
     },
 
     {

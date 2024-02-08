@@ -6,11 +6,36 @@ local lsp = require('lspconfig')
 
 lsp.lua_ls.setup(require 'lsp.settings.lua')
 lsp.texlab.setup(require 'lsp.settings.texlab')
+lsp.ltex.setup({})
+lsp.emmet_language_server.setup(require 'lsp.settings.emmet')
 lsp.pyright.setup({})
-lsp.clangd.setup({})
 lsp.glsl_analyzer.setup({})
 lsp.jsonls.setup({})
 lsp.wgsl_analyzer.setup({})
+lsp.typos_lsp.setup {}
+
+-- Skip setting up clang if on a linux
+if vim.fn.has('linux') == 0 then
+    lsp.clangd.setup({})
+end
+
+
+vim.g.rustaceanvim = {
+    tools = {
+        float_win_config = {
+            auto_focus = true,
+        },
+    },
+
+    -- LSP configuration
+    server = {
+        settings = {
+            -- rust-analyzer language server configuration
+            ['rust-analyzer'] = {
+            },
+        },
+    },
+}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
