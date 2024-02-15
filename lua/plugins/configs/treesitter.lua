@@ -1,3 +1,5 @@
+vim.filetype.add({extension = {wgsl = "wgsl"}})
+
 local M = {}
 
 M.opts = {

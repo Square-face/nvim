@@ -11,7 +11,9 @@ lsp.emmet_language_server.setup(require 'lsp.settings.emmet')
 lsp.pyright.setup({})
 lsp.glsl_analyzer.setup({})
 lsp.jsonls.setup({})
+lsp.wgsl_analyzer.setup({})
 lsp.typos_lsp.setup {}
+
 -- Skip setting up clang if on a linux
 if vim.fn.has('linux') == 0 then
     lsp.clangd.setup({})
@@ -63,10 +65,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end, opts)
         vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set({ 'n', 'v' }, '<leader>ca', function()
-            -- check if file type is rust
-                vim.lsp.buf.code_action()
-        end, opts)
+        vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set('n', '<leader>f', function()
             vim.lsp.buf.format { async = true }
