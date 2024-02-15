@@ -65,11 +65,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set({ 'n', 'v' }, '<leader>ca', function()
             -- check if file type is rust
-            if vim.bo.filetype == 'rust' then
-                vim.cmd.RustLsp { 'hover', 'actions' }
-            else
                 vim.lsp.buf.code_action()
-            end
         end, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
         vim.keymap.set('n', '<leader>f', function()
