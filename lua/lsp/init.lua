@@ -13,6 +13,7 @@ lsp.glsl_analyzer.setup({})
 lsp.jsonls.setup({})
 lsp.wgsl_analyzer.setup({})
 lsp.typos_lsp.setup {}
+lsp.html.setup({})
 
 -- Skip setting up clang if on a linux
 if vim.fn.has('linux') == 0 then
