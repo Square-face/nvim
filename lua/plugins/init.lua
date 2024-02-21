@@ -98,12 +98,10 @@ require('lazy').setup({
         ft = 'glsl'
     },
 
-    { -- Rust-tools
-
+    { -- Rustaceans
         'mrcjkb/rustaceanvim',
         version = '^3',
         ft = 'rust',
-
     },
 
     extended({ -- Autocomplete
