@@ -104,6 +104,12 @@ require('lazy').setup({
         ft = 'rust',
     },
 
+    { -- Haskell tools
+        'mrcjkb/haskell-tools.nvim',
+        version = '^3', -- Recommended
+        ft = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
+    },
+
     extended({ -- Autocomplete
         'hrsh7th/nvim-cmp',
         lazy = true,
@@ -239,4 +245,11 @@ require('lazy').setup({
         event = 'VeryLazy',
 
     }, 'plugins.configs.presence'),
+
+    { -- Smooth scrolling
+        "karb94/neoscroll.nvim",
+        config = function ()
+            require('neoscroll').setup {}
+        end
+    }
 })
