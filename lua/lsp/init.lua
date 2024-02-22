@@ -26,7 +26,6 @@ vim.g.rustaceanvim = {
             auto_focus = true,
         },
     },
-
     -- LSP configuration
     server = {
         settings = {
