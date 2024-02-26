@@ -11,7 +11,10 @@ lsp.emmet_language_server.setup(require 'lsp.settings.emmet')
 lsp.pyright.setup({})
 lsp.glsl_analyzer.setup({})
 lsp.jsonls.setup({})
+lsp.wgsl_analyzer.setup({})
 lsp.typos_lsp.setup {}
+lsp.html.setup({})
+
 -- Skip setting up clang if on a linux
 if vim.fn.has('linux') == 0 then
     lsp.clangd.setup({})
@@ -24,12 +27,32 @@ vim.g.rustaceanvim = {
             auto_focus = true,
         },
     },
-
     -- LSP configuration
     server = {
         settings = {
             -- rust-analyzer language server configuration
             ['rust-analyzer'] = {
+                cargo = {
+                    features = "all"
+                },
+                diagnostics = {
+                    disabled = {
+                        'inactive-code'
+                    }
+                },
+                check = {
+                    command = "clippy"
+                },
+                -- Other Settings ...
+                procMacro = {
+                    ignored = {
+                        leptos_macro = {
+                            -- optional: --
+                            "component",
+                            "server",
+                        },
+                    },
+                },
             },
         },
     },

@@ -98,12 +98,16 @@ require('lazy').setup({
         ft = 'glsl'
     },
 
-    { -- Rust-tools
-
+    { -- Rustaceans
         'mrcjkb/rustaceanvim',
         version = '^3',
         ft = 'rust',
+    },
 
+    { -- Haskell tools
+        'mrcjkb/haskell-tools.nvim',
+        version = '^3', -- Recommended
+        ft = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
     },
 
     extended({ -- Autocomplete
@@ -240,4 +244,10 @@ require('lazy').setup({
 
     }, 'plugins.configs.presence'),
 
+    { -- Smooth scrolling
+        "karb94/neoscroll.nvim",
+        config = function ()
+            require('neoscroll').setup {}
+        end
+    }
 })

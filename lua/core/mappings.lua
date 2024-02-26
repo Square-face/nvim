@@ -16,7 +16,9 @@ M.n = {
     ['<Esc>'] = { ':noh<CR>', 'Remove search highlight'},
 
     -- Buffers
-    ['<A-+>'] = { ':enew<CR>', 'Open a new buffer' }
+    ['<A-+>'] = { ':enew<CR>', 'Open a new buffer' },
+
+    ['<leader>cc'] = { ':Copilot toggle<CR>', 'toggle copilot' },
 }
 
 M.t = {

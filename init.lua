@@ -18,3 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require "plugins"
 require "core"
+
+vim.cmd([[
+    autocmd BufNewFile,BufRead *.wgsl set filetype=wgsl
+]])
