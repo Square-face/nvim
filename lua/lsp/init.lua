@@ -11,12 +11,12 @@ lsp.emmet_language_server.setup(require 'lsp.settings.emmet')
 lsp.pyright.setup({})
 lsp.glsl_analyzer.setup({})
 lsp.jsonls.setup({})
-lsp.wgsl_analyzer.setup({})
 lsp.typos_lsp.setup {}
 lsp.html.setup({})
 
--- Skip setting up clang if on a linux
+-- Skip setting up unsupported lsps if on a linux machine
 if vim.fn.has('linux') == 0 then
+    lsp.wgsl_analyzer.setup({})
     lsp.clangd.setup({})
 end
 
