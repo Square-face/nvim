@@ -1,6 +1,13 @@
 local options = {
     settings = {
         ["rust-analyzer"] = {
+            cargo = {
+                allFeatures = true,
+            },
+            checkOnSave = {
+                command = "clippy",
+                allFeatures = true,
+            },
             -- Other Settings ...
             procMacro = {
                 ignored = {
@@ -9,7 +16,7 @@ local options = {
                         "component",
                         "server",
                     },
-                },
+                }
             },
         },
     }
