@@ -13,6 +13,9 @@ lsp.glsl_analyzer.setup({})
 lsp.jsonls.setup({})
 lsp.typos_lsp.setup {}
 lsp.html.setup({})
+lsp.svelte.setup({})
+lsp.tsserver.setup({})
+lsp.eslint.setup({})
 
 -- Skip setting up unsupported lsps if on a linux machine
 if vim.fn.has('linux') == 0 then
