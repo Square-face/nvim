@@ -1,5 +1,16 @@
 local M = {};
 
+local colors = {
+    yellow = '#ECBE7B',
+    cyan = '#008080',
+    darkblue = '#081633',
+    green = '#98be65',
+    orange = '#FF8800',
+    violet = '#a9a1e1',
+    magenta = '#c678dd',
+    blue = '#51afef',
+    red = '#ec5f67'
+}
 
 M.opts = {
     options = {
@@ -46,7 +57,7 @@ M.opts = {
                 },
 
                 symbols = { error = 'E', warn = 'W', info = 'I', hint = 'H' },
-                colored = true,           -- Displays diagnostics status in color if set to true.
+                colored = true,          -- Displays diagnostics status in color if set to true.
                 update_in_insert = true, -- Update diagnostics in insert mode.
                 always_visible = true,   -- Show diagnostics even if there are none.
             },

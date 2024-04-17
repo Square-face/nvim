@@ -36,6 +36,12 @@ require('lazy').setup({
 
     }, 'plugins.configs.lualine'),
 
+    {
+        'j-hui/fidget.nvim',
+        lazy = false,
+        opts = {},
+    },
+
     extended({ -- Tabs
         'romgrk/barbar.nvim',
         lazy = false,
@@ -104,7 +110,7 @@ require('lazy').setup({
         ft = 'rust',
     },
 
-    { -- Haskell tools
+    {                   -- Haskell tools
         'mrcjkb/haskell-tools.nvim',
         version = '^3', -- Recommended
         ft = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
@@ -197,7 +203,7 @@ require('lazy').setup({
 
     {
         'tpope/vim-surround',
-        keys = { 'cs', 'ds', 'ys' },
+        keys = { 'cs', 'ds', 'ys', 'cst', 'dsf', 'dst' },
         dependencies = { 'tpope/vim-repeat' },
     },
 
@@ -246,7 +252,7 @@ require('lazy').setup({
 
     { -- Smooth scrolling
         "karb94/neoscroll.nvim",
-        config = function ()
+        config = function()
             require('neoscroll').setup {}
         end
     }

@@ -6,16 +6,19 @@ local lsp = require('lspconfig')
 
 lsp.lua_ls.setup(require 'lsp.settings.lua')
 lsp.texlab.setup(require 'lsp.settings.texlab')
-lsp.ltex.setup({})
 lsp.emmet_language_server.setup(require 'lsp.settings.emmet')
 lsp.pyright.setup({})
 lsp.glsl_analyzer.setup({})
 lsp.jsonls.setup({})
-lsp.typos_lsp.setup {}
+-- lsp.typos_lsp.setup {}
 lsp.html.setup({})
 lsp.svelte.setup({})
 lsp.tsserver.setup({})
 lsp.eslint.setup({})
+lsp.ltex.setup({})
+lsp.textlsp.setup({
+    filetypes = { 'markdown' },
+})
 
 -- Skip setting up unsupported lsps if on a linux machine
 if vim.fn.has('linux') == 0 then
