@@ -8,7 +8,6 @@ lsp.lua_ls.setup(require 'lsp.settings.lua')
 lsp.texlab.setup(require 'lsp.settings.texlab')
 lsp.emmet_language_server.setup(require 'lsp.settings.emmet')
 lsp.pyright.setup({})
-lsp.glsl_analyzer.setup({})
 lsp.jsonls.setup({})
 -- lsp.typos_lsp.setup {}
 lsp.html.setup({})
@@ -23,6 +22,7 @@ lsp.textlsp.setup({
 -- Skip setting up unsupported lsps if on a linux machine
 if vim.fn.has('linux') == 0 then
     lsp.wgsl_analyzer.setup({})
+    lsp.glsl_analyzer.setup({})
     lsp.clangd.setup({})
 end
 
