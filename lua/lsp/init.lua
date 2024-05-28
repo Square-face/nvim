@@ -18,12 +18,12 @@ lsp.ltex.setup({})
 lsp.textlsp.setup({
     filetypes = { 'markdown' },
 })
+lsp.clangd.setup({})
 
 -- Skip setting up unsupported lsps if on a linux machine
 if vim.fn.has('linux') == 0 then
     lsp.wgsl_analyzer.setup({})
     lsp.glsl_analyzer.setup({})
-    lsp.clangd.setup({})
 end
 
 
