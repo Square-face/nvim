@@ -18,6 +18,12 @@ require('lazy').setup({
     }, 'plugins.configs.tokyonight'),
 
     {
+        'aserowy/tmux.nvim',
+        lazy = false,
+        opts = {},
+    },
+
+    {
         'alexghergh/nvim-tmux-navigation',
 
         keys = {
