@@ -149,7 +149,7 @@ require('lazy').setup({
     { -- Snippets
         'L3MON4D3/LuaSnip',
         lazy = true,
-        build = "make install_jsregexp",
+        build = vim.g.isnix and "nix-shell -p gnumake --run 'make install_jsregexp'" or "make install_jsregexp",
         dependencies = 'rafamadriz/friendly-snippets',
         opts = { history = true, updateevents = 'TextChanged,TextChangedI' },
     },
@@ -226,7 +226,7 @@ require('lazy').setup({
     { -- Preview markdown files
         'iamcco/markdown-preview.nvim',
         cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-        build = "pnpm up && cd app && pnpm install",
+        build = vim.g.isnix and "nix-shell -p corepack nodejs --run 'pnpm up && cd app && pnpm install'" or "pnpm up && cd app && pnpm install",
         init = function()
             vim.g.mkdp_auto_start = 1
             vim.g.mkdp_echo_preview_url = 1

@@ -16,6 +16,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+require "oscheck"
 require "plugins"
 require "core"
 
