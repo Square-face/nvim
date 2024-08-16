@@ -43,14 +43,6 @@ M.config = function()
                 select = true,
             },
             ['<Tab>'] = cmp.mapping(function(fallback)
-                -- If copilot suggestion exists, use it
-                local copilot = require 'copilot.suggestion'
-                if copilot.is_visible() then
-                    copilot.accept()
-
-                    return
-                end
-
                 if cmp.visible() and has_words_before() then
                     cmp.select_next_item()
                 elseif require('luasnip').expand_or_jumpable() then
@@ -61,12 +53,6 @@ M.config = function()
             end, { 'i', 's', }),
 
             ['<S-Tab>'] = cmp.mapping(function(fallback)
-                local copilot = require 'copilot.suggestion'
-                if copilot.is_visible() then
-                    copilot.accept_word()
-                    return
-                end
-
                 if cmp.visible() then
                     cmp.select_prev_item()
                 elseif require('luasnip').jumpable(-1) then

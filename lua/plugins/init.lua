@@ -154,18 +154,6 @@ require('lazy').setup({
         opts = { history = true, updateevents = 'TextChanged,TextChangedI' },
     },
 
-    extended({
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        event = 'InsertEnter',
-
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "hrsh7th/nvim-cmp",
-        },
-    }, "plugins.configs.copilot"),
-
-
     -- QOL
 
     { -- Better looking folds
