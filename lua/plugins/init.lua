@@ -124,7 +124,7 @@ require('lazy').setup({
 
     extended({ -- Autocomplete
         'hrsh7th/nvim-cmp',
-        lazy = true,
+        event = 'VeryLazy',
         dependencies = {
             'windwp/nvim-autopairs',
             'L3MON4D3/LuaSnip',
