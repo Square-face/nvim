@@ -1,4 +1,4 @@
-
+vim.g.isnix = false
 if vim.fn.has('linux') == 1 then
     local fd_os_release = assert(io.open("/etc/os-release"), "r")
     local s_os_release = fd_os_release:read("*a")
