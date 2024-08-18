@@ -4,3 +4,6 @@
 - pnpm
 - npm
 - clang
+- codelldb
+- make
+
