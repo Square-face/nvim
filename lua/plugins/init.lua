@@ -112,7 +112,7 @@ require('lazy').setup({
 
     { -- Rustaceans
         'mrcjkb/rustaceanvim',
-        version = '^3',
+        version = '^5',
         ft = 'rust',
     },
 

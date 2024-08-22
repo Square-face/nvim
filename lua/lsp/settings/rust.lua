@@ -1,12 +1,17 @@
 local options = {
     settings = {
-        ["rust-analyzer"] = {
+        -- rust-analyzer language server configuration
+        ['rust-analyzer'] = {
             cargo = {
-                allFeatures = true,
+                features = "all"
             },
-            checkOnSave = {
-                command = "clippy",
-                allFeatures = true,
+            diagnostics = {
+                disabled = {
+                    'inactive-code'
+                }
+            },
+            check = {
+                command = "clippy"
             },
             -- Other Settings ...
             procMacro = {
@@ -16,9 +21,10 @@ local options = {
                         "component",
                         "server",
                     },
-                }
+                },
             },
         },
-    }
+    },
 }
 return options
+
