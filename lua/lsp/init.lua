@@ -26,9 +26,10 @@ if vim.fn.has('linux') == 0 then
     lsp.glsl_analyzer.setup({})
 end
 
-
+local executors = require('rustaceanvim.executors')
 vim.g.rustaceanvim = {
     tools = {
+        executor = executors.toggleterm,
         float_win_config = {
             auto_focus = true,
         },

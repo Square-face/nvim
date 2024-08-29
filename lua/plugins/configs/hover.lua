@@ -28,7 +28,13 @@ M.opts = {
 }
 
 M.keys = {
-    { 'K', function() require('hover').hover() end },
+    { 'K', function()
+        if vim.bo.filetype == "rust" then
+            vim.cmd.RustLsp { 'hover', 'actions' }
+        else
+            require('hover').hover()
+        end
+    end },
     { 'gK', function() require('hover').hover_select() end },
 }
 
