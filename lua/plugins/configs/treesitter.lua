@@ -1,4 +1,4 @@
-vim.filetype.add({extension = {wgsl = "wgsl"}})
+vim.filetype.add({ extension = { wgsl = "wgsl" } })
 
 local M = {}
 
@@ -20,7 +20,7 @@ M.opts = {
 M.build = ":TSUpdate"
 
 M.config = function()
-    require'nvim-treesitter.configs'.setup(M.opts)
+    require 'nvim-treesitter.configs'.setup(M.opts)
 end
 
 return M

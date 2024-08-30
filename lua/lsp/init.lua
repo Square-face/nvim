@@ -58,12 +58,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
         local opts = { buffer = ev.buf }
         vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
         vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set({ 'n', 'v' }, '<leader>ca', function ()
+        vim.keymap.set({ 'n', 'v' }, '<leader>ca', function()
             if vim.bo.filetype == "rust" then
                 vim.cmd.RustLsp('codeAction')
             else
                 vim.lsp.buf.code_action()
-        end
+            end
         end, opts)
         vim.keymap.set('n', '<leader>f', function()
             vim.lsp.buf.format { async = true }

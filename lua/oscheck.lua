@@ -7,4 +7,3 @@ if vim.fn.has('linux') == 1 then
     local is_nixos = s_os_release:match("nixos")
     vim.g.isnix = not (is_nixos == nil)
 end
-

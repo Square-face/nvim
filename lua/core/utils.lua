@@ -12,7 +12,7 @@ local M = {}
 M.load_section_mapping = function(section)
     for mode, mappings in pairs(section) do
         for trigger, mapping in pairs(mappings) do
-            vim.keymap.set(mode, trigger, mapping[1], {noremap = true})
+            vim.keymap.set(mode, trigger, mapping[1], { noremap = true })
         end
     end
 end
@@ -23,8 +23,7 @@ end
 
 -- basicly just a table merger
 -- takes in basic a as a table and imports the config table from an external resource
-M.extended = function (basic, config)
-
+M.extended = function(basic, config)
     local modified = basic
     local t2 = require(config)
 

@@ -12,8 +12,8 @@ M.n = {
     ['<A-k>'] = { ':m-2 <CR>', 'Move line up' },
 
     -- File
-    ['<C-s>'] = { ':w<CR>', 'Save current file'},
-    ['<Esc>'] = { ':noh<CR>', 'Remove search highlight'},
+    ['<C-s>'] = { ':w<CR>', 'Save current file' },
+    ['<Esc>'] = { ':noh<CR>', 'Remove search highlight' },
 
     -- Buffers
     ['<A-+>'] = { ':enew<CR>', 'Open a new buffer' },
