@@ -17,8 +17,6 @@ M.n = {
 
     -- Buffers
     ['<A-+>'] = { ':enew<CR>', 'Open a new buffer' },
-
-    ['<leader>cc'] = { ':Copilot toggle<CR>', 'toggle copilot' },
 }
 
 M.t = {
