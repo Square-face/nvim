@@ -13,6 +13,10 @@ Plugin.opts = {
     highlight = {
         enable = true,
     },
+
+    incremental_selection = {
+        enable = true,
+    }
 }
 
 Plugin.build = ":TSUpdate"
