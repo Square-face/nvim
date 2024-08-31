@@ -1,5 +1,6 @@
 -- Keymaps
 local M = {}
+vim.g.mapleader = ' '
 
 M.v = {
     ['<'] = { '<gv', 'Unindent selected lines' },

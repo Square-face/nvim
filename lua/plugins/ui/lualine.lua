@@ -1,11 +1,12 @@
 local Plugin        = { 'nvim-lualine/lualine.nvim' };
-Plugin.dependencies = { 'stevearc/overseer.nvim' }
-Plugin.lazy         = false;
+Plugin.dependencies = 'stevearc/overseer.nvim'
+Plugin.event        = 'VeryLazy';
 
 Plugin.opts         = {
     options = {
-        theme = 'tokyonight',
+        theme = 'auto',
         icons_enabled = true,
+        disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter" } },
     },
 
     sections = {
@@ -14,6 +15,13 @@ Plugin.opts         = {
         lualine_b = { 'branch' },
 
         lualine_c = {
+            {
+                'filetype',
+
+                icon_only = false,
+                newfile_status = true,
+            },
+
             {
                 'diagnostics',
 
@@ -26,12 +34,6 @@ Plugin.opts         = {
                 colored = true,          -- Displays diagnostics status in color if set to true.
                 update_in_insert = true, -- Update diagnostics in insert mode.
                 always_visible = false,  -- Show diagnostics even if there are none.
-            },
-            {
-                'filename',
-
-                file_status = true,
-                path = 1,
             },
         },
 
@@ -50,16 +52,16 @@ Plugin.opts         = {
                 status_not = false, -- When true, invert the status search
             },
             {
-                'filetype',
+                'filename',
 
-                icon_only = false,
-                newfile_status = true,
+                file_status = true,
+                path = 1,
             },
         },
-        lualine_y = { 'encoding' },
-        lualine_z = { 'location', 'progress' },
+        lualine_y = { 'location' },
+        lualine_z = { 'progress' },
     },
-    extensions = { 'toggleterm' }
+    extensions = { 'lazy', 'toggleterm' }
 }
 
 Plugin.dependencies = { 'kyazdani42/nvim-web-devicons' }

@@ -1,6 +1,5 @@
 return {
         'stevearc/resession.nvim',
-        dependencies = { 'stevearc/overseer.nvim' },
         opts = { extensions = { overseer = { } } },
         lazy = false,
         keys = {

@@ -1,4 +1,5 @@
 local Plugin = { "nvim-neotest/neotest" }
+Plugin.lazy = true
 Plugin.dependencies = {
     "nvim-neotest/nvim-nio",
     "nvim-lua/plenary.nvim",
@@ -6,6 +7,7 @@ Plugin.dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "rustaceanvim",
 }
+
 
 Plugin.opts = function()
     return { adapters = { require("rustaceanvim.neotest"), } }

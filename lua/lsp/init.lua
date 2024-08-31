@@ -1,5 +1,5 @@
 -- Setup language servers.
--- Specific LSP configs are found in the settings folder and are used with `require 'lsp.config.<lsp>`
+-- Specific LSP configs are found in the settings folder and are used with `require 'lsp.settings.<lsp>`
 
 
 local lsp = require('lspconfig')

@@ -6,12 +6,4 @@ Plugin.config = function()
     require 'lsp'
 end
 
-Plugin.init_options = {
-    userLanguages = {
-        eelixir = "html-eex",
-        eruby = "erb",
-        rust = "html",
-    }
-}
-
 return Plugin
