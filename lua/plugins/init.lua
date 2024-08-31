@@ -239,6 +239,23 @@ require('lazy').setup({
             },
         },
     },
+    {
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-neotest/nvim-nio",
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "rustaceanvim",
+        },
+        config = function()
+            require("neotest").setup({
+                adapters = {
+                    require("rustaceanvim.neotest"),
+                },
+            })
+        end,
+    },
 
     {
         'stevearc/resession.nvim',
