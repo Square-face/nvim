@@ -1,3 +1,4 @@
 return {
-    { 'j-hui/fidget.nvim', lazy = false, opts = {} },
+    { 'j-hui/fidget.nvim', event = "VeryLazy", opts = {} },
+    { 'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async', opts = {} },
 }

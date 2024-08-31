@@ -3,24 +3,11 @@ vim.g.mapleader = ' '
 
 -- Lazy load plugins
 return {
-    {import = "plugins.ui"},
-    {import = "plugins.lsp"},
-
-    { -- Snippets
-        'L3MON4D3/LuaSnip',
-        lazy = true,
-        build = vim.g.isnix and "nix-shell -p gnumake --run 'make install_jsregexp'" or "make install_jsregexp",
-        dependencies = 'rafamadriz/friendly-snippets',
-        opts = { history = true, updateevents = 'TextChanged,TextChangedI' },
-    },
+    { import = "plugins.ui" },
+    { import = "plugins.lsp" },
+    { import = "plugins.autocomplete" },
 
     -- QOL
-
-    { -- Better looking folds
-        'kevinhwang91/nvim-ufo',
-        dependencies = 'kevinhwang91/promise-async',
-        opts = {},
-    },
 
 
     { -- File explorer
@@ -33,20 +20,17 @@ return {
 
     { -- File search
         'nvim-telescope/telescope.nvim',
-        tag = '0.1.5',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-        },
-        cmd = { 'Telescope' },
+        tag = '0.1.8',
+        dependencies = 'nvim-lua/plenary.nvim',
         keys = {
-            { 'ff', function() require 'telescope.builtin'.find_files() end,          desc = 'Find files' },
-            { 'fg', function() require 'telescope.builtin'.live_grep() end,           desc = 'Find files with grep' },
-            { 'fb', function() require 'telescope.builtin'.buffers() end,             desc = 'Find buffers' },
-            { 'fh', function() require 'telescope.builtin'.help_tags() end,           desc = 'Find help' },
-            { 'fs', function() require 'telescope.builtin'.treesitter() end,          desc = 'Find symbols (treesitter)' },
-            { 'fr', function() require 'telescope.builtin'.lsp_refrences() end,       desc = 'Find refrences (LSP)' },
-            { 'fd', function() require 'telescope.builtin'.lsp_definitions() end,     desc = 'Find definitions (LSP)' },
-            { 'fi', function() require 'telescope.builtin'.lsp_implementations() end, desc = 'Find implementations (LSP)' },
+            { 'ff', function() require('telescope.builtin').find_files() end,           desc = 'Find files' },
+            { 'fg', function() require('telescope.builtin').live_grep() end,            desc = 'Find files with grep' },
+            { 'fb', function() require('telescope.builtin').buffers() end,              desc = 'Find buffers' },
+            { 'fh', function() require('telescope.builtin').help_tags() end,            desc = 'Find help' },
+            { 'fs', function() require('telescope.builtin').treesitter() end,           desc = 'Find symbols (treesitter)' },
+            { 'fr', function() require('telescope.builtin').lsp_refrences() end,        desc = 'Find refrences (LSP)' },
+            { 'fd', function() require('telescope.builtin').lsp_definitions() end,      desc = 'Find definitions (LSP)' },
+            { 'fi', function() require('telescope.builtin').lsp_implementations() end,  desc = 'Find implementations (LSP)' },
         }
     },
 
@@ -160,10 +144,9 @@ return {
     { -- Preview markdown files
         'iamcco/markdown-preview.nvim',
         cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-        build = vim.g.isnix and "nix-shell -p corepack nodejs --run 'pnpm up && cd app && pnpm install'" or
-            "pnpm up && cd app && pnpm install",
+        build = vim.g.isnix and "nix-shell -p corepack nodejs --run 'cd app && yarn install'" or
+            "cd app && yarn install",
         init = function()
-            vim.g.mkdp_auto_start = 1
             vim.g.mkdp_echo_preview_url = 1
         end,
         ft = { 'markdown' },
