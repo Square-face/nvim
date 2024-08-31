@@ -1,39 +1,10 @@
 -- Set leader key for keybinds
 vim.g.mapleader = ' '
 
-local extended = require 'core.utils'.extended
-
 -- Lazy load plugins
 return {
-    -- UI
-    {
-        'j-hui/fidget.nvim',
-        lazy = false,
-        opts = {},
-    },
-
-
-    -- Intrepreters
-
-    { -- glsl syntax highlighting
-        'tikhomirov/vim-glsl',
-        lazy = true,
-        ft = 'glsl'
-    },
-
-    { -- Rustaceans
-        'mrcjkb/rustaceanvim',
-        version = '5.2.1',
-        lazy = false,
-        ft = 'rust',
-    },
-
-    {                   -- Haskell tools
-        'mrcjkb/haskell-tools.nvim',
-        version = '^3', -- Recommended
-        ft = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
-    },
-
+    {import = "plugins.ui"},
+    {import = "plugins.lsp"},
 
     { -- Snippets
         'L3MON4D3/LuaSnip',

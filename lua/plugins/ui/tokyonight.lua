@@ -9,7 +9,6 @@ Plugin.opts = {
     sidebars = { "qf", "help" },      -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
     hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
 }
-
 Plugin.config = function(_, opts)
     require('tokyonight').setup(opts)
 
