@@ -218,6 +218,7 @@ require('lazy').setup({
             { '<leader>ot', ":OverseerToggle!<CR>",             desc = "Toggles Overseer window while keeping the current focus", silent = true, noremap = true },
             { '<leader>of', ":OverseerToggle<CR>",              desc = "Toggles Overseer window and moves focus to it",           silent = true, noremap = true },
             { '<leader>oo', ":OverseerQuickAction restart<CR>", desc = "Restart the last task",                                   silent = true, noremap = true },
+            { '<leader>os', ":OverseerQuickAction stop<CR>",    desc = "Stop the last task",                                      silent = true, noremap = true },
             { '<leader>or', ":OverseerRun<CR>",                 desc = "Run a task",                                              silent = true, noremap = true },
         },
         opts = {
