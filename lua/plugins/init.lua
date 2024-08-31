@@ -141,22 +141,6 @@ return {
 
     -- Other
 
-    { -- Preview markdown files
-        'iamcco/markdown-preview.nvim',
-        cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-        build = vim.g.isnix and "nix-shell -p corepack nodejs --run 'cd app && yarn install'" or
-            "cd app && yarn install",
-        init = function()
-            vim.g.mkdp_echo_preview_url = 1
-        end,
-        ft = { 'markdown' },
-    },
-
-    {
-        'lervag/vimtex',
-        cmd = { 'VimtexCompile' }
-    },
-
     { -- Smooth scrolling
         "karb94/neoscroll.nvim",
         opts = {},
