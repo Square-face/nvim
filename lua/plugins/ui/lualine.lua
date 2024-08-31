@@ -1,20 +1,8 @@
-local M        = {};
+local Plugin        = { 'nvim-lualine/lualine.nvim' };
+Plugin.dependencies = { 'stevearc/overseer.nvim' }
+Plugin.lazy         = false;
 
-M.dependencies = { 'stevearc/overseer.nvim' }
-
-local colors   = {
-    yellow = '#ECBE7B',
-    cyan = '#008080',
-    darkblue = '#081633',
-    green = '#98be65',
-    orange = '#FF8800',
-    violet = '#a9a1e1',
-    magenta = '#c678dd',
-    blue = '#51afef',
-    red = '#ec5f67'
-}
-
-M.opts         = {
+Plugin.opts         = {
     options = {
         theme = 'tokyonight',
         icons_enabled = true,
@@ -33,13 +21,6 @@ M.opts         = {
 
                 -- Displays diagnostics for the defined severity types
                 sections = { 'error', 'warn', 'hint' },
-
-                -- diagnostics_color = {
-                --     error = 'DiagnosticError', -- Changes diagnostics' error color.
-                --     warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
-                --     info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
-                --     hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
-                -- },
 
                 symbols = { error = ' ', warn = ' ', hint = ' ' },
                 colored = true,          -- Displays diagnostics status in color if set to true.
@@ -75,16 +56,13 @@ M.opts         = {
                 newfile_status = true,
             },
         },
-
         lualine_y = { 'encoding' },
-
         lualine_z = { 'location', 'progress' },
     },
-
     extensions = { 'toggleterm' }
 }
 
-M.dependencies = { 'kyazdani42/nvim-web-devicons' }
+Plugin.dependencies = { 'kyazdani42/nvim-web-devicons' }
 
 
-return M
+return Plugin

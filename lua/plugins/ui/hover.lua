@@ -1,6 +1,6 @@
-local M = {}
+local Plugin = {'lewis6991/hover.nvim'}
 
-M.opts = {
+Plugin.opts = {
     init = function()
         -- Require providers
         require("hover.providers.lsp")
@@ -27,7 +27,7 @@ M.opts = {
     mouse_delay = 1000
 }
 
-M.keys = {
+Plugin.keys = {
     { 'K', function()
         if vim.bo.filetype == "rust" then
             vim.cmd.RustLsp { 'hover', 'actions' }
@@ -38,4 +38,4 @@ M.keys = {
     { 'gK', function() require('hover').hover_select() end },
 }
 
-return M
+return Plugin

@@ -1,4 +1,5 @@
-local M = {}
+local M = {'akinsho/toggleterm.nvim'}
+M.cmd = { 'ToggleTerm', 'ToggleExec' }
 
 M.opts = {
     size = 20,

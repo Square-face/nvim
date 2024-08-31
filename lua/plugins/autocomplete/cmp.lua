@@ -1,4 +1,4 @@
-local M = {}
+local Plugin = { 'hrsh7th/nvim-cmp' }
 
 local has_words_before = function()
     if vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt' then return false end
@@ -6,11 +6,22 @@ local has_words_before = function()
     return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
 end
 
+Plugin.event = 'VeryLazy'
+Plugin.dependencies = {
+    'windwp/nvim-autopairs',
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-nvim-lsp',
+    'onsails/lspkind.nvim',
+}
 
-M.config = function()
+Plugin.opts = function()
     local cmp = require 'cmp'
 
-    require('cmp').setup({
+    return {
         snippet = {
             expand = function(args)
                 require('luasnip').lsp_expand(args.body)
@@ -70,9 +81,9 @@ M.config = function()
                 symbol_map = { Codeium = "", }
             })
         },
-    })
+    }
 end
 
 
 
-return M
+return Plugin

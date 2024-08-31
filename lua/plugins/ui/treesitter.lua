@@ -1,8 +1,6 @@
-vim.filetype.add({ extension = { wgsl = "wgsl" } })
+local Plugin = {'nvim-treesitter/nvim-treesitter'}
 
-local M = {}
-
-M.opts = {
+Plugin.opts = {
     -- A list of parser names, or 'all' (the five listed parsers should always be installed)
     ensure_installed = { 'svelte', 'typescript', 'javascript', 'rust', 'sql', 'python', 'lua', 'bash', 'toml', 'yaml', 'json', 'markdown' },
 
@@ -15,12 +13,17 @@ M.opts = {
     highlight = {
         enable = true,
     },
+
+    incremental_selection = {
+        enable = true,
+    }
 }
 
-M.build = ":TSUpdate"
+Plugin.build = ":TSUpdate"
 
-M.config = function()
-    require 'nvim-treesitter.configs'.setup(M.opts)
+Plugin.config = function()
+    vim.filetype.add({ extension = { wgsl = "wgsl" } })
+    require 'nvim-treesitter.configs'.setup(Plugin.opts)
 end
 
-return M
+return Plugin
