@@ -14,6 +14,7 @@ vim.o.cursorlineopt="number"
 vim.o.termguicolors = true
 vim.o.linebreak = true
 vim.o.wrap = false
+vim.o.laststatus = 3
 
 vim.o.signcolumn = 'no'         -- Always show the signcolumn, to avoid shifting numbers when using Vim's default 'auto' setting
 vim.o.scrolloff = 3             -- Number of lines to keep above and below the cursor

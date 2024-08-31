@@ -6,7 +6,7 @@ local has_words_before = function()
     return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
 end
 
-Plugin.event = 'VeryLazy'
+Plugin.event = 'InsertEnter'
 Plugin.dependencies = {
     'windwp/nvim-autopairs',
     'L3MON4D3/LuaSnip',
