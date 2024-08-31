@@ -4,105 +4,16 @@ vim.g.mapleader = ' '
 local extended = require 'core.utils'.extended
 
 -- Lazy load plugins
-require('lazy').setup({
-
-
+return {
     -- UI
-    extended({ -- Color theme
-
-        'folke/tokyonight.nvim',
-        name = 'tokyonight',
-        lazy = false,
-        priority = 100,
-
-    }, 'plugins.configs.tokyonight'),
-
-    {
-        'aserowy/tmux.nvim',
-        lazy = false,
-        opts = {},
-    },
-
-    {
-        'alexghergh/nvim-tmux-navigation',
-
-        keys = {
-            { '<C-l>', function() require('nvim-tmux-navigation').NvimTmuxNavigateRight() end },
-            { '<C-h>', function() require('nvim-tmux-navigation').NvimTmuxNavigateLeft() end },
-            { '<C-k>', function() require('nvim-tmux-navigation').NvimTmuxNavigateUp() end },
-            { '<C-j>', function() require('nvim-tmux-navigation').NvimTmuxNavigateDown() end },
-        }
-    },
-
-
-    extended({ -- Statusline
-
-        'nvim-lualine/lualine.nvim',
-        lazy = false,
-
-    }, 'plugins.configs.lualine'),
-
     {
         'j-hui/fidget.nvim',
         lazy = false,
         opts = {},
     },
 
-    extended({ -- Tabs
-        'romgrk/barbar.nvim',
-        lazy = false,
-
-    }, "plugins.configs.barbar"),
-
-    extended({ -- Hover
-        'lewis6991/hover.nvim'
-    }, 'plugins.configs.hover'),
-
-    extended({
-        'folke/todo-comments.nvim',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        lazy = false,
-    }, 'plugins.configs.todo-comments'),
-
-
 
     -- Intrepreters
-
-    extended({ -- Parser
-
-        'nvim-treesitter/nvim-treesitter',
-        lazy = false,
-
-    }, 'plugins.configs.treesitter'),
-
-
-    extended({ -- LSP manager
-        'neovim/nvim-lspconfig',
-        lazy = false,
-        dependencies = { 'williamboman/mason-lspconfig.nvim' },
-
-    }, 'plugins.configs.lsp-config'),
-
-    extended({
-        'mfussenegger/nvim-dap',
-        event = 'VeryLazy',
-    }, 'plugins.configs.dap'),
-
-    extended({ -- LSP installer
-
-        'williamboman/mason.nvim',
-        lazy = true,
-
-    }, 'plugins.configs.mason'),
-
-
-    extended({ -- LSP bridge
-
-        'williamboman/mason-lspconfig.nvim',
-        lazy = true,
-        dependencies = { 'williamboman/mason.nvim' },
-
-    }, 'plugins.configs.mason-lsp'),
 
     { -- glsl syntax highlighting
         'tikhomirov/vim-glsl',
@@ -122,29 +33,6 @@ require('lazy').setup({
         version = '^3', -- Recommended
         ft = { 'haskell', 'lhaskell', 'cabal', 'cabalproject' },
     },
-
-    extended({ -- Autocomplete
-        'hrsh7th/nvim-cmp',
-        event = 'VeryLazy',
-        dependencies = {
-            'windwp/nvim-autopairs',
-            'L3MON4D3/LuaSnip',
-            'saadparwaiz1/cmp_luasnip',
-            'hrsh7th/cmp-cmdline',
-            'hrsh7th/cmp-path',
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-nvim-lsp',
-            'onsails/lspkind.nvim',
-        },
-    }, 'plugins.configs.cmp'),
-
-
-    extended({ -- auto close parenthesis
-
-        lazy = true,
-        'windwp/nvim-autopairs',
-
-    }, 'plugins.configs.autopairs'),
 
 
     { -- Snippets
@@ -191,14 +79,6 @@ require('lazy').setup({
         }
     },
 
-    extended({ -- Terminal
-
-        'akinsho/toggleterm.nvim',
-        cmd = { 'ToggleTerm', 'ToggleExec' },
-
-    }, 'plugins.configs.toggleterm'),
-
-
     {
         'tpope/vim-surround',
         keys = { 'cs', 'ds', 'ys', 'cst', 'dsf', 'dst' },
@@ -207,7 +87,6 @@ require('lazy').setup({
 
 
     { -- Keybind helper
-
         'folke/which-key.nvim',
         event = 'VeryLazy',
     },
@@ -319,32 +198,13 @@ require('lazy').setup({
         ft = { 'markdown' },
     },
 
-    { -- Markdown presentation
-        'aca/marp.nvim',
-        keys = {
-            { '<leader>mp', function() require('marp.nvim').ServerStart() end, desc = 'Start Marp Server' },
-            { '<leader>me', function() require('marp.nvim').ServerStop() end,  desc = 'Stop Mark Server' },
-        },
-    },
-
     {
-
         'lervag/vimtex',
         cmd = { 'VimtexCompile' }
-
     },
-
-    extended({
-
-        'andweeb/presence.nvim',
-        event = 'VeryLazy',
-
-    }, 'plugins.configs.presence'),
 
     { -- Smooth scrolling
         "karb94/neoscroll.nvim",
-        config = function()
-            require('neoscroll').setup {}
-        end
+        opts = {},
     }
-})
+}

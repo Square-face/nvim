@@ -1,13 +1,11 @@
-local M = {}
+local Plugin = { 'romgrk/barbar.nvim' }
+Plugin.lazy = false
 
-M.opts = {}
+Plugin.opts = {}
 
-M.init = function() vim.g.barbar_auto_setup = false end
+Plugin.init = function() vim.g.barbar_auto_setup = false end
 
-
--- Set background to transparent
-
-M.keys = {
+Plugin.keys = {
     { '<A-,>',     ':BufferPrevious<CR>' },
     { '<A-.>',     ':BufferNext<CR>' },
     { '<A-;>',     ':BufferMovePrevious<CR>' },
@@ -31,9 +29,9 @@ M.keys = {
     { '<A-S-Tab>', ':BufferPrevious<CR>' },
 }
 
-M.dependencies = {
+Plugin.dependencies = {
     'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
     'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
 }
 
-return M
+return Plugin

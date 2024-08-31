@@ -1,4 +1,6 @@
-local M = {}
+local M = {'folke/todo-comments.nvim'}
+M.dependencies = { 'nvim-lua/plenary.nvim' }
+M.lazy = false
 
 M.opts = {
     signs = true,      -- show icons in the signs column
