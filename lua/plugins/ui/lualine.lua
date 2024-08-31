@@ -4,7 +4,7 @@ Plugin.event        = 'VeryLazy';
 
 Plugin.opts         = {
     options = {
-        theme = 'auto',
+        theme = 'nordic',
         icons_enabled = true,
         disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter" } },
     },

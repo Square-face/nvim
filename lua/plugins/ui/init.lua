@@ -1,5 +1,7 @@
 return {
-    { 'j-hui/fidget.nvim', event = "VeryLazy", opts = {} },
-    { 'folke/which-key.nvim', event = 'VeryLazy' },
-    { "karb94/neoscroll.nvim", opts = {}, keys = { '<C-u>', '<C-d>', '<C-b>', '<C-f>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb', } },
+    { 'j-hui/fidget.nvim',                   event = "VeryLazy", opts = {} },
+    { 'folke/which-key.nvim',                event = 'VeryLazy' },
+    { "karb94/neoscroll.nvim",               opts = {},          keys = { '<C-u>', '<C-d>', '<C-b>', '<C-f>', '<C-y>', '<C-e>', 'zt', 'zz', 'zb', } },
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl",       opts = {} },
+    { "luukvbaal/statuscol.nvim",            opts = {relculright = true} },
 }
