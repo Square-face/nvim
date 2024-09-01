@@ -1,6 +1,6 @@
 local M = {'folke/todo-comments.nvim'}
 M.dependencies = { 'nvim-lua/plenary.nvim' }
-M.lazy = false
+M.event = 'VeryLazy'
 
 M.opts = {}
 

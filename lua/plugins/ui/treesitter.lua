@@ -21,9 +21,11 @@ Plugin.opts = {
 
 Plugin.build = ":TSUpdate"
 
-Plugin.config = function()
+Plugin.config = function(_, opts)
     vim.filetype.add({ extension = { wgsl = "wgsl" } })
-    require 'nvim-treesitter.configs'.setup(Plugin.opts)
+    require 'nvim-treesitter.configs'.setup(opts)
 end
+
+Plugin.event = 'VeryLazy'
 
 return Plugin
