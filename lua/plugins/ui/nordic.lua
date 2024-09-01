@@ -16,5 +16,6 @@ Plugin.init = function()
     vim.cmd("colorscheme nordic")
     vim.api.nvim_set_hl(0, 'MsgArea', {bg='#16161e'})
     vim.api.nvim_set_hl(0, 'FoldColumn', {link='Normal'})
+    vim.api.nvim_set_hl(0, 'Visual', {bg='#3b4252'})
 end
 return Plugin
