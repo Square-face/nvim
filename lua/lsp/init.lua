@@ -9,6 +9,7 @@ lsp.texlab.setup(require 'lsp.settings.texlab')
 lsp.emmet_language_server.setup(require 'lsp.settings.emmet')
 lsp.pyright.setup(require 'lsp.settings.pyright')
 lsp.jsonls.setup({})
+lsp.gdscript.setup({})
 -- lsp.typos_lsp.setup {}
 lsp.html.setup({})
 lsp.svelte.setup({})
