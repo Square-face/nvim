@@ -13,7 +13,7 @@ lsp.gdscript.setup({})
 -- lsp.typos_lsp.setup {}
 lsp.html.setup({})
 lsp.svelte.setup({})
-lsp.tsserver.setup({})
+lsp.ts_ls.setup({})
 lsp.eslint.setup({})
 lsp.ltex.setup({})
 lsp.textlsp.setup({
