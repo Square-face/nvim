@@ -16,12 +16,23 @@ Plugin.dependencies = {
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-nvim-lsp',
     'onsails/lspkind.nvim',
+    'uga-rosa/cmp-dictionary',
 }
 
 Plugin.opts = function()
     local cmp = require 'cmp'
+    local luasnip = require 'luasnip'
+
+    require("cmp_dictionary").setup({
+        paths = { "/usr/share/dict/words" },
+        exact_length = 2,
+    })
 
     return {
+        enabled = function()
+            return not (vim.api.nvim_get_option_value("buftype", {}) == 'prompt')
+        end,
+
         snippet = {
             expand = function(args)
                 require('luasnip').lsp_expand(args.body)
@@ -29,25 +40,22 @@ Plugin.opts = function()
         },
 
         window = {
-            -- completion = cmp.config.window.bordered(),
-            -- documentation = cmp.config.window.bordered(),
+            completion = cmp.config.window.bordered(),
+            documentation = cmp.config.window.bordered(),
         },
 
         sources = cmp.config.sources({
             { name = 'path' },     -- File paths
             { name = 'nvim_lsp' }, -- Language Server
             { name = 'luasnip' },  -- Snippet Engine
-        }, {
-            { name = 'buffer' },
+            { name = 'dictionary', keyword_length = 2 },
         }),
-
-        enabled = true,
 
         mapping = {
             ['<Up>'] = cmp.mapping.select_prev_item(),
             ['<Down>'] = cmp.mapping.select_next_item(),
-            ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-            ['<C-f>'] = cmp.mapping.scroll_docs(4),
+            ['<C-j>'] = cmp.mapping.scroll_docs(4),
+            ['<C-k>'] = cmp.mapping.scroll_docs(-4),
             ['<C-e>'] = cmp.mapping.close(),
             ['<CR>'] = cmp.mapping.confirm {
                 behavior = cmp.ConfirmBehavior.Insert,
@@ -57,7 +65,7 @@ Plugin.opts = function()
                 if cmp.visible() and has_words_before() then
                     cmp.select_next_item()
                 elseif require('luasnip').expand_or_jumpable() then
-                    vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+                    luasnip.expand_or_jump()
                 else
                     fallback()
                 end
@@ -67,19 +75,23 @@ Plugin.opts = function()
                 if cmp.visible() then
                     cmp.select_prev_item()
                 elseif require('luasnip').jumpable(-1) then
-                    vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+                    luasnip.jump(-1)
                 else
                     fallback()
                 end
             end, { 'i', 's', }),
         },
+
         formatting = {
             format = require('lspkind').cmp_format({
                 mode = "symbol",
                 maxwidth = 50,
                 ellipsis_char = '...',
-                symbol_map = { Codeium = "", }
             })
+        },
+
+        experimental = {
+            ghost_text = true,
         },
     }
 end

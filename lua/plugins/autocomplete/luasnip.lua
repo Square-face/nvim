@@ -3,7 +3,7 @@ Plugin.lazy = true
 
 Plugin.build = vim.g.isnix and "nix-shell -p gnumake --run 'make install_jsregexp'" or "make install_jsregexp"
 
-Plugin.opts = { history = true, updateevents = 'TextChanged,TextChangedI' }
+Plugin.opts = { history = false, updateevents = 'TextChanged,TextChangedI' }
 
 Plugin.dependencies = {
     'rafamadriz/friendly-snippets',

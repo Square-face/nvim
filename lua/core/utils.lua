@@ -37,4 +37,14 @@ M.extended = function(basic, config)
     return modified
 end
 
+M.get_session_name = function ()
+    local name = vim.fn.getcwd()
+    local branch = vim.trim(vim.fn.system("git branch --show-current"))
+    if vim.v.shell_error == 0 then
+        return name .. branch
+    else
+        return name
+    end
+end
+
 return M
