@@ -1,4 +1,4 @@
-local Plugin = {        'andweeb/presence.nvim'}
+local Plugin = { 'andweeb/presence.nvim' }
 Plugin.event = 'VeryLazy'
 Plugin.opts = {
     -- General options

@@ -4,7 +4,7 @@ Plugin.version = "*"
 Plugin.event = 'VeryLazy'
 
 Plugin.opts = {
-    options = {
+    ptions = {
         diagnostics = "nvim_lsp",
         separator_style = "thin",
         offsets = {
@@ -19,24 +19,24 @@ Plugin.opts = {
 }
 
 Plugin.keys = {
-    { '<A-,>', ':BufferLineCyclePrev<CR>' },
-    { '<A-.>', ':BufferLineCycleNext<CR>' },
-    { '<A-1>', ':BufferLineGoToBuffer 1<CR>' },
-    { '<A-2>', ':BufferLineGoToBuffer 2<CR>' },
-    { '<A-3>', ':BufferLineGoToBuffer 3<CR>' },
-    { '<A-4>', ':BufferLineGoToBuffer 4<CR>' },
-    { '<A-5>', ':BufferLineGoToBuffer 5<CR>' },
-    { '<A-6>', ':BufferLineGoToBuffer 6<CR>' },
-    { '<A-7>', ':BufferLineGoToBuffer 7<CR>' },
-    { '<A-8>', ':BufferLineGoToBuffer 8<CR>' },
-    { '<A-9>', ':BufferLineGoToBuffer 9<CR>' },
-    { '<A-->', ':bdelete<CR>' },
-    { '<A-c>', ':BufferLinePickClose<CR>' },
-    { '<A-w>', ':bwipeout<CR>' },
-    { '<A-p>', ':BufferLineTogglePin<CR>' },
-    { '<A-s>', ':BufferLinePick<CR>' },
-    { '<A-d>', ':BufferLineOrderByDirectory<CR>' },
-    { '<A-e>', ':BufferLineOrderByExtension<CR>' },
+    { '<A-,>', ':BufferLineCyclePrev<CR>',        silent = true, noremap = true, desc = "Go to previous buffer" },
+    { '<A-.>', ':BufferLineCycleNext<CR>',        silent = true, noremap = true, desc = "Go to next buffer" },
+    { '<A-s>', ':BufferLinePick<CR>',             silent = true, noremap = true, desc = "Pick buffer to go to" },
+    { '<A-1>', ':BufferLineGoToBuffer 1<CR>',     silent = true, noremap = true, desc = "Go to buffer 1" },
+    { '<A-2>', ':BufferLineGoToBuffer 2<CR>',     silent = true, noremap = true, desc = "Go to buffer 2" },
+    { '<A-3>', ':BufferLineGoToBuffer 3<CR>',     silent = true, noremap = true, desc = "Go to buffer 3" },
+    { '<A-4>', ':BufferLineGoToBuffer 4<CR>',     silent = true, noremap = true, desc = "Go to buffer 4" },
+    { '<A-5>', ':BufferLineGoToBuffer 5<CR>',     silent = true, noremap = true, desc = "Go to buffer 5" },
+    { '<A-6>', ':BufferLineGoToBuffer 6<CR>',     silent = true, noremap = true, desc = "Go to buffer 6" },
+    { '<A-7>', ':BufferLineGoToBuffer 7<CR>',     silent = true, noremap = true, desc = "Go to buffer 7" },
+    { '<A-8>', ':BufferLineGoToBuffer 8<CR>',     silent = true, noremap = true, desc = "Go to buffer 8" },
+    { '<A-9>', ':BufferLineGoToBuffer 9<CR>',     silent = true, noremap = true, desc = "Go to buffer 9" },
+    { '<A-d>', ':BufferLineOrderByDirectory<CR>', silent = true, noremap = true, desc = "Sort buffers by dictionary" },
+    { '<A-e>', ':BufferLineOrderByExtension<CR>', silent = true, noremap = true, desc = "Sort buffers by extensions" },
+    { '<A-p>', ':BufferLineTogglePin<CR>',        silent = true, noremap = true, desc = "Pick a buffer to pin" },
+    { '<A-c>', ':BufferLinePickClose<CR>',        silent = true, noremap = true, desc = "Pick a buffer to close" },
+    { '<A-->', ':bdelete<CR>',                    silent = true, noremap = true, desc = "Delete current buffer" },
+    { '<A-w>', ':bwipeout<CR>',                   silent = true, noremap = true, desc = "Delete current buffer but more" },
 }
 
 return Plugin
