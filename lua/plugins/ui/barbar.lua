@@ -4,7 +4,7 @@ Plugin.version = "*"
 Plugin.event = 'VeryLazy'
 
 Plugin.opts = {
-    ptions = {
+    options = {
         diagnostics = "nvim_lsp",
         separator_style = "thin",
         offsets = {

@@ -23,11 +23,6 @@ Plugin.opts = function()
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
 
-    require("cmp_dictionary").setup({
-        paths = { "/usr/share/dict/words" },
-        exact_length = 2,
-    })
-
     return {
         enabled = function()
             return not (vim.api.nvim_get_option_value("buftype", {}) == 'prompt')
@@ -48,7 +43,6 @@ Plugin.opts = function()
             { name = 'path' },     -- File paths
             { name = 'nvim_lsp' }, -- Language Server
             { name = 'luasnip' },  -- Snippet Engine
-            { name = 'dictionary', keyword_length = 2 },
         }),
 
         mapping = {
