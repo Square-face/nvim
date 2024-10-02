@@ -10,12 +10,13 @@ Plugin.dependencies = {
     "nvim-lua/plenary.nvim",
     "antoinemadec/FixCursorHold.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "rustaceanvim",
+    "mrcjkb/rustaceanvim",
+    "rcasia/neotest-java"
 }
 
 
 Plugin.opts = function()
-    return { adapters = { require("rustaceanvim.neotest"), } }
+    return { adapters = { require("rustaceanvim.neotest"), ["neotest-java"] = {},} }
 end
 
 return Plugin

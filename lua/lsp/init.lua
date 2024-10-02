@@ -15,6 +15,7 @@ lsp.html.setup({})
 lsp.svelte.setup({})
 lsp.ts_ls.setup({})
 lsp.eslint.setup({})
+lsp.jdtls.setup({})
 lsp.ltex.setup({})
 lsp.textlsp.setup({
     filetypes = { 'markdown' },
