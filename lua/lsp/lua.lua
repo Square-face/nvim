@@ -1,7 +1,7 @@
 local function setup(client)
     if client.workspace_folders then
         local path = client.workspace_folders[1].name
-        if vim.uv.fs_stat(path..'/.luarc.json') or vim.uv.fs_stat(path..'/.luarc.jsonc') then
+        if vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc') then
             return
         end
     end
@@ -21,11 +21,11 @@ local function setup(client)
 end
 
 local opts = {
-  on_init = setup,
+    on_init = setup,
 
-  settings = {Lua = {}}
+    settings = { Lua = {} }
 }
 
 return function()
-    require'lspconfig'.lua_ls.setup(opts)
+    require 'lspconfig'.lua_ls.setup(opts)
 end

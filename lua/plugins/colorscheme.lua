@@ -1,6 +1,7 @@
 local plug = {
     "akinsho/horizon.nvim",
-    lazy = false, priority = 1000,
+    lazy = false,
+    priority = 1000,
 }
 
 plug.opts = {
