@@ -1,6 +1,15 @@
-plug = {'neovim/nvim-lspconfig'}
+local plug = {'neovim/nvim-lspconfig'}
+
+plug.dependencies = {
+    {'williamboman/mason.nvim', opts = {}},
+    'williamboman/mason-lspconfig.nvim'
+}
+
 plug.init = function()
-    lsp = require "lspconfig"
+    local lsp = require "lspconfig"
+
+    lsp.rust_analyzer.setup{}
+    lsp.lua_ls.setup{}
 end
 
 return plug
