@@ -1,4 +1,4 @@
-plug = {'nvim-telescope/telescope.nvim'}
+local plug = {'nvim-telescope/telescope.nvim'}
 plug.dependecies = {'nvim-lua/plenary.nvim'}
 
 plug.keys = {

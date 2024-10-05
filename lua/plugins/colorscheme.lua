@@ -1,4 +1,4 @@
-plug = {
+local plug = {
     "akinsho/horizon.nvim",
     lazy = false, priority = 1000,
 }

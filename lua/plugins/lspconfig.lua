@@ -9,7 +9,7 @@ plug.init = function()
     local lsp = require "lspconfig"
 
     lsp.rust_analyzer.setup{}
-    lsp.lua_ls.setup{}
+    lsp.lua_ls.setup(require 'lsp.lua')
 end
 
 return plug
