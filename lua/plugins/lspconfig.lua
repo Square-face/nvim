@@ -14,7 +14,6 @@ local keys = {
     { '<C-k>',  vim.diagnostic.goto_prev, silent = true, noremap = true, desc = "Jump to previous diagnostic." },
 }
 
-
 return {
     'neovim/nvim-lspconfig',
     keys = keys,
@@ -22,6 +21,6 @@ return {
     dependencies = {
         'williamboman/mason-lspconfig.nvim',
         opts         = { handlers = handlers },
-        dependencies = { 'williamboman/mason.nvim', opts = {} },
+        dependencies = { 'williamboman/mason.nvim', opts = {PATH = 'append'} },
     }
 }
