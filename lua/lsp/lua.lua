@@ -23,9 +23,7 @@ end
 local opts = {
   on_init = setup,
 
-  settings = {
-    Lua = {}
-  }
+  settings = {Lua = {}}
 }
 
 return function()

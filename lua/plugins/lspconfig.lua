@@ -1,15 +1,14 @@
-local plug = {'neovim/nvim-lspconfig'}
+local handlers = {
+    function (server_name)
+        require('lspconfig')[server_name].setup({})
+    end,
 
-plug.dependencies = {
-    {'williamboman/mason.nvim', opts = {}},
-    'williamboman/mason-lspconfig.nvim'
+    ["lua_ls"] = require 'lsp.lua',
 }
 
-plug.init = function()
-    local lsp = require "lspconfig"
 
-    lsp.rust_analyzer.setup{}
-    lsp.lua_ls.setup(require 'lsp.lua')
-end
 
-return plug
+return {'neovim/nvim-lspconfig', dependencies = {
+    'williamboman/mason-lspconfig.nvim', opts = {handlers = handlers},
+    dependencies  = {'williamboman/mason.nvim', opts = {}},
+}}
