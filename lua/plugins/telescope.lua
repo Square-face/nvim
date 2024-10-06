@@ -8,4 +8,6 @@ plug.keys = {
     {'fh', '<cmd>Telescope help_tags<cr>',  silent=true, noremap=true, desc="Find help"},
 }
 
+plug.cmd = {'Telescope'}
+
 return plug
