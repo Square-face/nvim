@@ -10,3 +10,7 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.cursorline = true
 vim.o.signcolumn = 'number'
+
+-- Folds
+vim.o.foldcolumn = '1'
+vim.o.foldenable = true
