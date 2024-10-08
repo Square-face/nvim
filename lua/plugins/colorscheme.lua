@@ -1,4 +1,4 @@
-local plug = { "catppuccin/nvim" }
+local plug = { "catppuccin/nvim", name="catppuccin" }
 
 plug.opts = {
     show_end_of_buffer = true,
