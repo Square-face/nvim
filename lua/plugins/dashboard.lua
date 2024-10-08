@@ -53,10 +53,16 @@ plug.opts = function()
                     key = 'u'
                 },
                 {
-                    icon = ' ',
+                    icon = ' ',
                     desc = 'Files',
                     action = 'Telescope find_files',
                     key = 'f',
+                },
+                {
+                    icon = ' ',
+                    desc = 'Grep',
+                    action = 'Telescope live_grep',
+                    key = 'r'
                 },
             },
         },
