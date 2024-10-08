@@ -1,4 +1,5 @@
 local plug = {'justinmk/vim-sneak'}
+plug.dependencies  = {'tpope/vim-repeat'}
 
 plug.keys = {
     {'s', '<Plug>Sneak_s'},
