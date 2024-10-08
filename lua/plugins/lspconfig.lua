@@ -1,6 +1,14 @@
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
+
 local handlers = {
     function(name)
-        require('lspconfig')[name].setup({})
+        require('lspconfig')[name].setup({
+            capabilities = capabilities
+        })
     end,
 
     ["lua_ls"] = require 'lsp.lua',

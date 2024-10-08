@@ -14,3 +14,4 @@ vim.o.signcolumn = 'number'
 -- Folds
 vim.o.foldcolumn = '1'
 vim.o.foldenable = true
+vim.o.fillchars = 'foldopen:▾,foldsep:│,foldclose:▸'

@@ -10,7 +10,7 @@ local function setup(client)
         runtime = {
             version = 'LuaJIT'
         },
-        -- Make the server aware of Neovim runtime files
+
         workspace = {
             checkThirdParty = false,
             library = {
@@ -20,10 +20,17 @@ local function setup(client)
     })
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
+
 local opts = {
     on_init = setup,
 
-    settings = { Lua = {} }
+    settings = { Lua = {} },
+    capabilities = capabilities,
 }
 
 return function()
