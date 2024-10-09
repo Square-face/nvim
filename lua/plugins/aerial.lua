@@ -1,6 +1,4 @@
-local plug = {
-    'stevearc/aerial.nvim',
-}
+local plug = { 'stevearc/aerial.nvim', name = 'aerial' }
 
 plug.opts = {
     backends = { "lsp", "treesitter", "markdown", "asciidoc", "man" },

@@ -1,5 +1,4 @@
-local plug = {'windwp/nvim-autopairs'}
+local plug = { 'windwp/nvim-autopairs', name = 'autopairs', opts = {} }
 plug.event = 'InsertEnter'
-plug.opts = {}
 
 return plug

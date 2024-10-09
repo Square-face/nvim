@@ -1,4 +1,4 @@
-local plug = { 'nvimdev/dashboard-nvim' }
+local plug = { 'nvimdev/dashboard-nvim', name = 'dashboard' }
 plug.event = 'VimEnter'
 
 plug.opts = function()

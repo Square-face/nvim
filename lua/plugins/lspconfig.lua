@@ -38,12 +38,14 @@ end
 
 return {
     'neovim/nvim-lspconfig',
+    name = "lspconfig",
     keys = keys,
     lazy = false,
     init = init,
     dependencies = {
         'williamboman/mason-lspconfig.nvim',
+        name = "mason-lspconfig",
         opts         = { handlers = handlers },
-        dependencies = { 'williamboman/mason.nvim', opts = { PATH = 'append' } },
+        dependencies = { 'williamboman/mason.nvim', name = "mason", opts = { PATH = 'append' } },
     }
 }

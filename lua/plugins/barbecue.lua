@@ -1,4 +1,4 @@
-local plug = { "utilyre/barbecue.nvim", version = "*", opts = {} }
+local plug = { "utilyre/barbecue.nvim", name = 'barbecue', version = "*", opts = {} }
 plug.event = 'LspAttach'
 
 plug.dependencies = {

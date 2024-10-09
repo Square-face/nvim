@@ -1,3 +1,4 @@
-local plug = {'j-hui/fidget.nvim', opts = {}, event='VeryLazy'}
+local plug = { 'j-hui/fidget.nvim', opts = {}, name = 'fidget' }
+plug.event = 'VeryLazy'
 
 return plug

@@ -1,4 +1,4 @@
-local plug = { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' }
+local plug = { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate', name = 'treesitter' }
 plug.opts = {}
 
 return plug

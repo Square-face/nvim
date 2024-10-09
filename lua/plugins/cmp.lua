@@ -1,13 +1,13 @@
-local plug = { 'hrsh7th/nvim-cmp' }
+local plug = { 'hrsh7th/nvim-cmp', name = 'cmp' }
 plug.event = "InsertEnter"
 
 plug.dependencies = {
     'neovim/nvim-lspconfig',
     'L3MON4D3/LuaSnip',
 
-    'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
-    'onsails/lspkind.nvim',
+    { 'hrsh7th/cmp-nvim-lsp', name = 'cmp-lsp' },
+    { 'onsails/lspkind.nvim', name = 'lspkind' },
 }
 
 local function cr(fallback)

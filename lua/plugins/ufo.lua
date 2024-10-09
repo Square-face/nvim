@@ -1,4 +1,4 @@
-local plug = { 'kevinhwang91/nvim-ufo' }
+local plug = { 'kevinhwang91/nvim-ufo', name = 'ufo' }
 plug.dependencies = { 'kevinhwang91/promise-async' }
 plug.event = 'BufEnter'
 

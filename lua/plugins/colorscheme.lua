@@ -4,6 +4,7 @@ plug.opts = {
     show_end_of_buffer = true,
     integrations = {
         which_key = true,
+        illuminate = {enable = true},
     },
 }
 

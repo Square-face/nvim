@@ -1,4 +1,4 @@
-local plug = { 'kylechui/nvim-surround' }
+local plug = { 'kylechui/nvim-surround', name = 'surround' }
 plug.version = '*'
 
 plug.keys = {
