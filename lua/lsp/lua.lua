@@ -35,4 +35,7 @@ local opts = {
 
 return function()
     require 'lspconfig'.lua_ls.setup(opts)
+    require 'lspconfig'.arduino_language_server.setup({
+        cmd = { "/Users/06limi01@minervagymnasium.se/go/bin/arduino-language-server", "-cli-config", "$HOME/Library/Arduino15/arduino-cli.yaml" }
+    })
 end

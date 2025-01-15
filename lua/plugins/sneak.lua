@@ -2,12 +2,12 @@ local plug = {'justinmk/vim-sneak'}
 plug.dependencies  = {'tpope/vim-repeat'}
 
 plug.keys = {
-    {'s', '<Plug>Sneak_s'},
-    {'S', '<Plug>Sneak_S'},
-    {'f', '<Plug>Sneak_f'},
-    {'F', '<Plug>Sneak_F'},
-    {'t', '<Plug>Sneak_t'},
-    {'T', '<Plug>Sneak_T'},
+    {'<leader>s', '<Plug>Sneak_s'},
+    {'<leader>S', '<Plug>Sneak_S'},
+    {'<leader>f', '<Plug>Sneak_f'},
+    {'<leader>F', '<Plug>Sneak_F'},
+    {'<leader>t', '<Plug>Sneak_t'},
+    {'<leader>T', '<Plug>Sneak_T'},
 }
 
 return plug
