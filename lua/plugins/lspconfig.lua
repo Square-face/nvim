@@ -15,13 +15,13 @@ local handlers = {
 }
 
 local keys = {
-    { '<leader>rn',  vim.lsp.buf.rename,       silent = true, noremap = true, desc = "Rename symbol" },
-    { '<leader>ca',  vim.lsp.buf.code_action,  silent = true, noremap = true, desc = "Use code acion" },
-    { '<leader>gd',  vim.lsp.buf.definition,   silent = true, noremap = true, desc = "Goto definition" },
-    { '<leader>gtd', vim.lsp.buf.definition,   silent = true, noremap = true, desc = "Goto type definition" },
-    { '<leader>f',   vim.lsp.buf.format,       silent = true, noremap = true, desc = "Format code" },
-    { '<C-j>',       vim.diagnostic.goto_next, silent = true, noremap = true, desc = "Jump to next diagnostic" },
-    { '<C-k>',       vim.diagnostic.goto_prev, silent = true, noremap = true, desc = "Jump to previous diagnostic" },
+    { '<leader>rn',  vim.lsp.buf.rename,          silent = true, noremap = true, desc = "Rename symbol" },
+    { '<leader>ca',  vim.lsp.buf.code_action,     silent = true, noremap = true, desc = "Use code acion" },
+    { '<leader>gd',  vim.lsp.buf.definition,      silent = true, noremap = true, desc = "Goto definition" },
+    { '<leader>gtd', vim.lsp.buf.type_definition, silent = true, noremap = true, desc = "Goto type definition" },
+    { '<leader>f',   vim.lsp.buf.format,          silent = true, noremap = true, desc = "Format code" },
+    { '<C-j>',       vim.diagnostic.goto_next,    silent = true, noremap = true, desc = "Jump to next diagnostic" },
+    { '<C-k>',       vim.diagnostic.goto_prev,    silent = true, noremap = true, desc = "Jump to previous diagnostic" },
 }
 
 local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }

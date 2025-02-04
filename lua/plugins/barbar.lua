@@ -10,8 +10,8 @@ Plug.init = function() vim.g.barbar_auto_setup = false end
 Plug.version = '^1.0.0' -- optional: only update when a new 1.x version is released
 
 Plug.keys = {
-    { '<A-.>', '<Cmd>BufferPrevious<CR>',     silent = true, desc = "Switch to previous tab" },
-    { '<A-,>', '<Cmd>BufferNext<CR>',         silent = true, desc = "Switch to next tab" },
+    { '<A-.>', '<Cmd>BufferNext<CR>',         silent = true, desc = "Switch to next tab" },
+    { '<A-,>', '<Cmd>BufferPrevious<CR>',     silent = true, desc = "Switch to previous tab" },
 
     { '<A-<>', '<Cmd>BufferMovePrevious<CR>', silent = true, desc = "Move tab left" },
     { '<A->>', '<Cmd>BufferMoveNext<CR>',     silent = true, desc = "Move tab right" },
