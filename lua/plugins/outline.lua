@@ -1,5 +1,5 @@
 local plug = { 'hedyhli/outline.nvim', name = 'outline' }
-plug.opts = { outline_window = { position = 'left' } }
+plug.opts = { outline_window = { position = 'right' } }
 
 plug.cmd = { 'Outline', 'OutlineOpen' }
 plug.keys = {
