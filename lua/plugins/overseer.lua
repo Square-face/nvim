@@ -1,6 +1,6 @@
 local Plug = { 'stevearc/overseer.nvim', name = 'overseer' }
 Plug.opts = {
-    strategy = { 'toggleterm', use_shell=true },
+    strategy = { 'toggleterm', use_shell = true },
     task_editor = {
         bindings = {
             n = {
@@ -12,7 +12,11 @@ Plug.opts = {
 
 local function run()
     local oversser = require('overseer')
-    oversser.run_template({ tags = { oversser.TAG.RUN } }, function ()
+    oversser.run_template({ tags = { oversser.TAG.RUN } }, function()
+        local buf = vim.api.nvim_get_current_buf()
+        vim.api.nvim_buf_set_keymap(buf, 'n', '<esc>', '<cmd>q<CR>', { silent = true })
+        vim.api.nvim_buf_set_keymap(buf, 'n', 'q', '<cmd>q<CR>', { silent = true })
+
         local esc = vim.api.nvim_replace_termcodes('<C-\\><C-n>', true, true, true)
         vim.api.nvim_feedkeys(esc, 't', true)
     end)
