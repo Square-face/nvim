@@ -11,8 +11,8 @@ Plug.opts = {
     on_open = function(term)
         require('which-key').add(
             {
-                { 'q', '<cmd>ToggleTerm<CR>', buffer = term.bufnr },
-                { '<ESC>', '<cmd>ToggleTerm<CR>', buffer = term.bufnr }
+                { 'q', '<cmd>q<CR>', buffer = term.bufnr },
+                { '<ESC>', '<cmd>q<CR>', buffer = term.bufnr }
             }
         )
     end
