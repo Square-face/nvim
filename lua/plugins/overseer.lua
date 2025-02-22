@@ -1,6 +1,6 @@
 local Plug = { 'stevearc/overseer.nvim', name = 'overseer' }
 Plug.opts = {
-    strategy = { 'toggleterm', use_shell = true },
+    strategy = { 'toggleterm', use_shell = true, quit_on_exit='always' },
     task_editor = {
         bindings = {
             n = {
