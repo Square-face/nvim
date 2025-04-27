@@ -12,6 +12,7 @@ local handlers = {
     end,
 
     ["lua_ls"] = require 'lsp.lua',
+    ["harper_ls"] = require 'lsp.harper',
 }
 
 local keys = {
