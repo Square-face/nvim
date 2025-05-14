@@ -1,6 +1,6 @@
 local Plug = { 'stevearc/overseer.nvim', name = 'overseer' }
 Plug.opts = {
-    strategy = { 'toggleterm', use_shell = true, quit_on_exit='always' },
+    strategy = { 'toggleterm', use_shell = true, quit_on_exit = 'always' },
     task_editor = {
         bindings = {
             n = {
@@ -24,7 +24,7 @@ end
 
 Plug.cmd = { 'OverseerRun', 'OverseerToggle' }
 Plug.keys = {
-    { '<leader>T',  function() require('overseer').toggle() end,       desc = "Toggle task list" },
+    { '<leader>to', function() require('overseer').toggle() end,       desc = "Toggle task list" },
     { '<leader>rt', function() require('overseer').run_template() end, desc = "Run template" },
     { '<leader>rr', run,                                               desc = "Run run template" },
 }
