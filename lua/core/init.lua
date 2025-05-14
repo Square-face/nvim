@@ -3,6 +3,10 @@ vim.g.mapleader = ' '
 -- filetypes
 vim.g.tex_flavor = "latex"
 
+-- wrap
+vim.opt.wrap = true
+vim.opt.textwidth = 80
+
 -- tabs
 vim.o.expandtab = true
 vim.o.tabstop = 4
