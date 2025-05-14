@@ -20,10 +20,11 @@ return {
         )
     ),
 
+    -- sections
     s({ trig = "seq", snippetType = "autosnippet" },
         fmta([[
-              \subsection{<>}
-                  <>
+              \section{<>}
+              <>
             ]],
             { i(1), i(2) }
         )
@@ -31,8 +32,17 @@ return {
 
     s({ trig = "sseq", snippetType = "autosnippet" },
         fmta([[
+              \subsection{<>}
+              <>
+            ]],
+            { i(1), i(2) }
+        )
+    ),
+
+    s({ trig = "ssseq", snippetType = "autosnippet" },
+        fmta([[
               \subsubsection{<>}
-                  <>
+              <>
             ]],
             { i(1), i(2) }
         )
