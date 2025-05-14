@@ -4,10 +4,11 @@ plug.event = "InsertEnter"
 plug.dependencies = {
     'neovim/nvim-lspconfig',
     'L3MON4D3/LuaSnip',
-
     'hrsh7th/cmp-path',
-    { 'hrsh7th/cmp-nvim-lsp', name = 'cmp-lsp' },
-    { 'onsails/lspkind.nvim', name = 'lspkind' },
+    'micangl/cmp-vimtex',
+    { 'hrsh7th/cmp-nvim-lsp',     name = 'cmp-lsp' },
+    { 'onsails/lspkind.nvim',     name = 'lspkind' },
+    { 'saadparwaiz1/cmp_luasnip', name = 'cmp-luasnip' },
 }
 
 local function cr(fallback)
@@ -73,7 +74,9 @@ plug.opts = function()
             end
         },
         sources = {
+            { name = 'vimtex' },
             { name = 'nvim_lsp' },
+            { name = 'luasnip' },
             { name = 'path' },
         },
         formatting = {

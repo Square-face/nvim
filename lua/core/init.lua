@@ -1,5 +1,8 @@
 vim.g.mapleader = ' '
 
+-- filetypes
+vim.g.tex_flavor = "latex"
+
 -- tabs
 vim.o.expandtab = true
 vim.o.tabstop = 4
