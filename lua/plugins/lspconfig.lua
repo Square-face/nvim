@@ -25,18 +25,22 @@ local keys = {
     { '<C-k>',       vim.diagnostic.goto_prev,    silent = true, noremap = true, desc = "Jump to previous diagnostic" },
 }
 
-local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
 
 local function init()
+    local signs = {
+        [vim.diagnostic.severity.ERROR] = "󰅚",
+        [vim.diagnostic.severity.WARN] = "󰀪",
+        [vim.diagnostic.severity.HINT] = "󰌶",
+        [vim.diagnostic.severity.INFO] = ""
+    }
+
     vim.diagnostic.config({
         update_in_insert = true,
         severity_sort = true,
+        signs = {
+            text = signs
+        }
     })
-
-    for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-    end
 end
 
 return {
