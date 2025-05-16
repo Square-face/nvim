@@ -1,5 +1,5 @@
 local plug = { 'hrsh7th/nvim-cmp', name = 'cmp' }
-plug.event = "InsertEnter"
+plug.event = "BufRead"
 
 plug.dependencies = {
     'neovim/nvim-lspconfig',
