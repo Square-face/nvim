@@ -6,9 +6,11 @@ diagnostics.opts = {
     preset = "modern",
 
     options = {
+        throttle = 0,
+        enable_on_insert = true,
         use_icons_from_diagnostic = true,
         multilines = { enabled = true },
-        break_line = { enabled = true }
+        break_line = { enabled = true },
     }
 }
 
