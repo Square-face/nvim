@@ -1,7 +1,11 @@
-local plug = { 'nvimdev/dashboard-nvim', name = 'dashboard' }
-plug.event = 'VimEnter'
+local dashboard = { 'nvimdev/dashboard-nvim', name = 'dashboard' }
+dashboard.cond = function()
+    return vim.fn.argc() == 0
+end
 
-plug.opts = function()
+dashboard.dependencies = { 'folke/snacks.nvim' }
+
+dashboard.opts = function()
     return {
         theme = 'hyper',
         disable_move = true,
@@ -21,13 +25,13 @@ plug.opts = function()
                     icon_hl = '@variable',
                     desc = 'Files',
                     group = 'Label',
-                    action = 'Telescope find_files',
+                    action = 'lua Snacks.picker.files()',
                     key = 'f',
                 },
                 {
                     desc = '󱎸 Grep',
                     group = 'DiagnosticHint',
-                    action = 'Telescope live_grep',
+                    action = 'lua Snacks.picker.grep()',
                     key = 'g',
                 },
             },
@@ -35,4 +39,4 @@ plug.opts = function()
     }
 end
 
-return plug
+return dashboard
