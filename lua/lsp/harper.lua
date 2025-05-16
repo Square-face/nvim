@@ -1,4 +1,5 @@
-local opts = {
+
+vim.lsp.config['harper_ls'] = {
     settings = {
         ["harper-ls"] = {
             linters = {
@@ -8,7 +9,3 @@ local opts = {
         }
     },
 }
-
-return function()
-    require 'lspconfig'.harper_ls.setup(opts)
-end
