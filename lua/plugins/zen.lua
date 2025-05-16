@@ -9,6 +9,7 @@ twilight.opts = {
     },
     context = 15,
     expand = {
+        "module",
         "function",
         "method",
         "table",
@@ -31,7 +32,7 @@ zen.opts = {
     },
     plugins = {
         gitsigns = { enabled = true },
-        kitty = { enabled = true },
+        kitty = { enabled = true, font = "+1" },
         tmux = { enabled = true }
     }
 }
