@@ -1,4 +1,4 @@
 local plug = { 'j-hui/fidget.nvim', opts = {}, name = 'fidget' }
-plug.event = 'VeryLazy'
+plug.event = 'LspNotify'
 
 return plug

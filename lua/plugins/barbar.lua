@@ -1,4 +1,4 @@
-local Plug = { 'romgrk/barbar.nvim', event = 'BufEnter', opts = {} }
+local Plug = { 'romgrk/barbar.nvim', event = { 'BufReadPost', 'BufNewFile' }, opts = {} }
 
 Plug.dependencies = {
     'lewis6991/gitsigns.nvim',
