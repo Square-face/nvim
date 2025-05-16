@@ -36,6 +36,6 @@ lspconfig.keys = {
 }
 
 mason.dependencies = { 'williamboman/mason.nvim', name = "mason", opts = { PATH = 'append' } }
-lspconfig.dependencies = { mason }
+lspconfig.dependencies = { mason, 'rachartier/tiny-inline-diagnostic.nvim' }
 
 return { lspconfig, lazydev  }
