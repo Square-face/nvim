@@ -1,15 +1,16 @@
-local Plug = { 'romgrk/barbar.nvim', event = { 'BufReadPost', 'BufNewFile' }, opts = {} }
+local barbar = { 'romgrk/barbar.nvim' }
+barbar.lazy=false
 
-Plug.dependencies = {
+barbar.dependencies = {
     'lewis6991/gitsigns.nvim',
     'nvim-tree/nvim-web-devicons',
 }
 
-Plug.init = function() vim.g.barbar_auto_setup = false end
+barbar.init = function() vim.g.barbar_auto_setup = false end
+barbar.opts = {}
 
-Plug.version = '^1.0.0' -- optional: only update when a new 1.x version is released
 
-Plug.keys = {
+barbar.keys = {
     { '<A-.>', '<Cmd>BufferNext<CR>',         silent = true, desc = "Switch to next tab" },
     { '<A-,>', '<Cmd>BufferPrevious<CR>',     silent = true, desc = "Switch to previous tab" },
 
@@ -33,4 +34,4 @@ Plug.keys = {
     { '<A-->', '<Cmd>BufferClose<CR>',        silent = true, desc = "Close buffer" },
 }
 
-return Plug
+return barbar

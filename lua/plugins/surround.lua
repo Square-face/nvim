@@ -2,13 +2,13 @@ local plug = { 'kylechui/nvim-surround', name = 'surround' }
 plug.version = '*'
 
 plug.keys = {
-    { 'ds',  mode = 'n', desc = "Delete surround" },
-    { 'cs',  mode = 'n', desc = "Change surround" },
-    { 'cS',  mode = 'n', desc = "Change surround (newline)" },
-    { 'ys',  mode = 'n', desc = "Create surround" },
-    { 'yS',  mode = 'n', desc = "Create surround (newline)" },
-    { 'yss', mode = 'n', desc = "Create surround (entire line)" },
-    { 'ysS', mode = 'n', desc = "Create surround (for entire line) (newline)" },
+    { 'ds',  desc = "Delete surround" },
+    { 'cs',  desc = "Change surround" },
+    { 'cS',  desc = "Change surround (newline)" },
+    { 'ys',  desc = "Create surround" },
+    { 'yS',  desc = "Create surround (newline)" },
+    { 'yss', desc = "Create surround (entire line)" },
+    { 'ysS', desc = "Create surround (for entire line) (newline)" },
 }
 
 plug.opts = {}
