@@ -1,32 +1,32 @@
-local plug = { 'hrsh7th/nvim-cmp', name = 'cmp' }
+local plug = { "hrsh7th/nvim-cmp", name = "cmp" }
 plug.event = "BufRead"
 
 plug.dependencies = {
-    'neovim/nvim-lspconfig',
-    'L3MON4D3/LuaSnip',
-    'hrsh7th/cmp-path',
-    'micangl/cmp-vimtex',
-    { 'hrsh7th/cmp-nvim-lsp',     name = 'cmp-lsp' },
-    { 'onsails/lspkind.nvim',     name = 'lspkind' },
-    { 'saadparwaiz1/cmp_luasnip', name = 'cmp-luasnip' },
+    "neovim/nvim-lspconfig",
+    "L3MON4D3/LuaSnip",
+    "hrsh7th/cmp-path",
+    "micangl/cmp-vimtex",
+    { "hrsh7th/cmp-nvim-lsp", name = "cmp-lsp" },
+    { "onsails/lspkind.nvim", name = "lspkind" },
+    { "saadparwaiz1/cmp_luasnip", name = "cmp-luasnip" },
 }
 
 local function cr(fallback)
-    local cmp = require 'cmp'
-    local luasnip = require 'luasnip'
+    local cmp = require("cmp")
+    local luasnip = require("luasnip")
 
     if cmp.visible() then
         cmp.confirm({ select = true })
     elseif luasnip.expandable() then
-        luasnip.expand()
+        luasnip.expand({})
     else
         fallback()
     end
 end
 
 local function tab(fallback)
-    local cmp = require 'cmp'
-    local luasnip = require 'luasnip'
+    local cmp = require("cmp")
+    local luasnip = require("luasnip")
 
     if cmp.visible() then
         cmp.select_next_item()
@@ -38,8 +38,8 @@ local function tab(fallback)
 end
 
 local function shift_tab(fallback)
-    local cmp = require 'cmp'
-    local luasnip = require 'luasnip'
+    local cmp = require("cmp")
+    local luasnip = require("luasnip")
 
     if cmp.visible() then
         cmp.select_prev_item()
@@ -51,41 +51,39 @@ local function shift_tab(fallback)
 end
 
 plug.opts = function()
-    local cmp = require 'cmp'
-    local lspkind = require 'lspkind'
+    local cmp = require("cmp")
+    local lspkind = require("lspkind")
 
     return {
         mapping = {
-            ['<C-d>']     = cmp.mapping.scroll_docs(4),
-            ['<C-u>']     = cmp.mapping.scroll_docs(-4),
+            ["<C-d>"] = cmp.mapping.scroll_docs(4),
+            ["<C-u>"] = cmp.mapping.scroll_docs(-4),
 
-            ['<Up>']      = cmp.mapping.select_prev_item(),
-            ['<Down>']    = cmp.mapping.select_next_item(),
+            ["<Up>"] = cmp.mapping.select_prev_item(),
+            ["<Down>"] = cmp.mapping.select_next_item(),
 
-            ['<CR>']      = cmp.mapping(cr, { 'i', 's' }),
-            ['<C-Space>'] = cmp.mapping.abort(),
+            ["<CR>"] = cmp.mapping(cr, { "i", "s" }),
+            ["<C-Space>"] = cmp.mapping.abort(),
 
-            ['<Tab>']     = cmp.mapping(tab, { 'i', 's' }),
-            ['<S-Tab>']   = cmp.mapping(shift_tab, { 'i', 's' }),
+            ["<Tab>"] = cmp.mapping(tab, { "i", "s" }),
+            ["<S-Tab>"] = cmp.mapping(shift_tab, { "i", "s" }),
         },
         snippet = {
-            expand = function(args)
-                require 'luasnip'.lsp_expand(args.body)
-            end
+            expand = function(args) require("luasnip").lsp_expand(args.body) end,
         },
         sources = {
-            { name = 'vimtex' },
-            { name = 'nvim_lsp' },
-            { name = 'luasnip' },
-            { name = 'path' },
+            { name = "vimtex" },
+            { name = "nvim_lsp" },
+            { name = "luasnip" },
+            { name = "path" },
         },
         formatting = {
             format = lspkind.cmp_format({
-                mode = 'symbol',
+                mode = "symbol",
                 maxwidth = 50,
-                ellipsis_char = '...',
-            })
-        }
+                ellipsis_char = "...",
+            }),
+        },
     }
 end
 

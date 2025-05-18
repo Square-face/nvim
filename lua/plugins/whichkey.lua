@@ -1,32 +1,28 @@
-local plug = { 'folke/which-key.nvim', name = 'which-key' }
+local plug = { "folke/which-key.nvim", name = "which-key" }
 
-plug.event = 'VeryLazy'
+plug.event = "VeryLazy"
 
 plug.opts = {
     spec = {
-        { '<ESC>', '<cmd>nohlsearch<CR>',                                        mode = 'n', silent = true, noremap = true, desc = 'Hide search results', },
-        { '?',     function() require("which-key").show({ global = false }) end, mode = 'n', silent = true, noremap = true, desc = 'Buffer Local Keymaps (which-key)', },
         {
-            mode = { 'n', 'i' },
-            { '<A-j>', function() vim.cmd('m+' .. vim.v.count1) end,     noremap = true, desc = 'Move line down' },
-            { '<A-k>', function() vim.cmd('m-' .. 1 + vim.v.count1) end, noremap = true, desc = 'Move line up' },
+            mode = { "v" },
+            { "<", "<gv", noremap = true, desc = "Unindent line" },
+            { ">", ">gv", noremap = true, desc = "Unindent line" },
         },
         {
-            mode = { 'v' },
-            { '<A-j>', function() vim.cmd("m'>+" .. vim.v.count1) end,     noremap = true, desc = 'Move line down' },
-            { '<A-k>', function() vim.cmd("m'<-" .. 1 + vim.v.count1) end, noremap = true, desc = 'Move line up' },
-            { '<',     '<gv',                                              noremap = true, desc = 'Unindent line' },
-            { '>',     '>gv',                                              noremap = true, desc = 'Unindent line' },
+            mode = { "n", "v" },
+            {
+                "<leader>rf",
+                require("core.random_float").insert_random_float,
+                noremap = true,
+                desc = "Generate a random float value between 0 and 100",
+            },
         },
         {
-            mode = { 'n', 'v' },
-            { '<leader>rf', require('core.random_float').insert_random_float, noremap = true, desc = 'Generate a random float value between 0 and 100' },
+            mode = { "t" },
+            { "<esc>", "<C-\\><C-n>", silent = true, noremap = true, desc = "Exit insert mode" },
         },
-        {
-            mode = { 't' },
-            { '<esc>', '<C-\\><C-n>', silent = true, noremap = true, desc = 'Exit insert mode' }
-        }
-    }
+    },
 }
 
 return plug

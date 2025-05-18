@@ -1,5 +1,5 @@
-local crates = { 'saecki/crates.nvim', tag = 'stable', name = 'crates' }
-crates.event = 'BufRead Cargo.toml'
+local crates = { "saecki/crates.nvim", tag = "stable", name = "crates" }
+crates.event = "BufRead Cargo.toml"
 crates.opts = {
     lsp = {
         enabled = true,
@@ -10,7 +10,7 @@ crates.opts = {
     },
 }
 
-local rustacean = { 'mrcjkb/rustaceanvim', version = '5.2.1' }
-rustacean.ft = 'rust'
+local rustacean = { "mrcjkb/rustaceanvim", version = "5.2.1" }
+rustacean.ft = "rust"
 
 return { rustacean, crates }

@@ -6,10 +6,10 @@ bbq.config = function(_, opts)
     require("barbecue").setup(opts)
     require("barbecue.ui").toggle(false)
 
-    local wk = require('which-key')
+    local wk = require("which-key")
 
     wk.add({
-        { '<leader>bq', require("barbecue.ui").toggle, noremap = true, desc = "Toggle barbecue" }
+        { "<leader>bq", require("barbecue.ui").toggle, noremap = true, desc = "Toggle barbecue" },
     })
 end
 

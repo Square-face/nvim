@@ -1,8 +1,6 @@
 local M = {}
 -- Generate a random float between -100 and 100
-local function random_float()
-    return (math.random() * 200) - 100
-end
+local function random_float() return (math.random() * 200) - 100 end
 
 -- Put a random float at the cursor in normal mode
 local function normal_mode()
@@ -15,10 +13,9 @@ end
 
 local function block_select()
     local select_start, select_end
-    select_start = vim.api.nvim_buf_get_mark(0, '<')
-    select_end = vim.api.nvim_buf_get_mark(0, '>')
+    select_start = vim.api.nvim_buf_get_mark(0, "<")
+    select_end = vim.api.nvim_buf_get_mark(0, ">")
     print(select_start, select_end)
-
 end
 
 local function visual_mode(mode)

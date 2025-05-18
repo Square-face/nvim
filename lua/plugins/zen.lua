@@ -1,4 +1,4 @@
-local twilight = { "folke/twilight.nvim", name = 'twilight' }
+local twilight = { "folke/twilight.nvim", name = "twilight" }
 
 twilight.opts = {
     dimming = {
@@ -27,18 +27,22 @@ zen.opts = {
             number = false,
             cursorcolumn = false,
             foldcolumn = "0",
-            list = false
-        }
+            list = false,
+        },
     },
     plugins = {
         gitsigns = { enabled = true },
         kitty = { enabled = true, font = "+1" },
-        tmux = { enabled = true }
-    }
+        tmux = { enabled = true },
+    },
 }
 
 zen.keys = {
-    { '<leader>z', function() require('zen-mode').toggle() end, desc = "Toggle Zen mode" }
+    {
+        "<leader>z",
+        function() require("zen-mode").toggle() end,
+        desc = "Toggle Zen mode",
+    },
 }
 
 return zen

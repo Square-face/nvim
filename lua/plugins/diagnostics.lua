@@ -11,7 +11,7 @@ diagnostics.opts = {
         use_icons_from_diagnostic = true,
         multilines = { enabled = true },
         break_line = { enabled = true },
-    }
+    },
 }
 
 return diagnostics

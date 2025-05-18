@@ -1,5 +1,5 @@
-local plug = { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate', name = 'treesitter' }
+local plug = { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", name = "treesitter" }
 plug.opts = {}
-plug.event = {'BufReadPost'}
+plug.event = { "BufReadPost" }
 
 return plug

@@ -1,4 +1,4 @@
-local plug = { "catppuccin/nvim", name="catppuccin" }
+local plug = { "catppuccin/nvim", name = "catppuccin" }
 
 plug.opts = {
     transparent_background = true,
@@ -7,14 +7,10 @@ plug.opts = {
         which_key = true,
         notify = true,
         dashboard = true,
-        illuminate = {enable = true},
+        illuminate = { enable = true },
     },
 }
 
-plug.init = function()
-    vim.cmd.colorscheme('catppuccin')
-end
-
-
+plug.init = function() vim.cmd.colorscheme("catppuccin") end
 
 return plug

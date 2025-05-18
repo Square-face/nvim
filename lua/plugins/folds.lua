@@ -1,21 +1,22 @@
-local folds = { 'bbjornstad/pretty-fold.nvim' }
-folds.name = 'pretty-folds'
-folds.event = { 'BufNewFile', 'BufRead' }
+local folds = { "bbjornstad/pretty-fold.nvim" }
+folds.name = "pretty-folds"
+folds.event = { "BufNewFile", "BufRead" }
 
 folds.opts = {
     sections = {
         left = {
-            'content',
-            function(config) return config.fill_char:rep(1) end, '󰁂 ',
-            'number_of_folded_lines'
+            "content",
+            function(config) return config.fill_char:rep(1) end,
+            "󰁂 ",
+            "number_of_folded_lines",
         },
-        right = { 'percentage',
+        right = {
+            "percentage",
             function(config) return config.fill_char:rep(3) end,
-
-        }
+        },
     },
 
-    fill_char = ' '
+    fill_char = " ",
 }
 
 return folds
