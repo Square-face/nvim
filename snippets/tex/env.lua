@@ -10,8 +10,10 @@ local fmta = require("luasnip.extras.fmt").fmta
 local rep = require("luasnip.extras").rep
 
 return {
-    s({ trig = "env", snippetType = "autosnippet" },
-        fmta([[
+    s(
+        { trig = "env", snippetType = "autosnippet" },
+        fmta(
+            [[
               \begin{<>}
                   <>
               \end{<>}
@@ -21,8 +23,10 @@ return {
     ),
 
     -- sections
-    s({ trig = "seq", snippetType = "autosnippet" },
-        fmta([[
+    s(
+        { trig = "seq", snippetType = "autosnippet" },
+        fmta(
+            [[
               \section{<>}
               <>
             ]],
@@ -30,8 +34,10 @@ return {
         )
     ),
 
-    s({ trig = "sseq", snippetType = "autosnippet" },
-        fmta([[
+    s(
+        { trig = "sseq", snippetType = "autosnippet" },
+        fmta(
+            [[
               \subsection{<>}
               <>
             ]],
@@ -39,8 +45,10 @@ return {
         )
     ),
 
-    s({ trig = "ssseq", snippetType = "autosnippet" },
-        fmta([[
+    s(
+        { trig = "ssseq", snippetType = "autosnippet" },
+        fmta(
+            [[
               \subsubsection{<>}
               <>
             ]],

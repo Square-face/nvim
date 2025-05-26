@@ -1,5 +1,5 @@
 local Plug = { "L3MON4D3/LuaSnip" }
-Plug.build = "make install_jsregexp"
+Plug.build = vim.g.nix and "nix-shell -p cmake --run 'make install jsregxp'" or "make install_jsregexp"
 Plug.dependencies = { "rafamadriz/friendly-snippets" }
 Plug.lazy = true
 

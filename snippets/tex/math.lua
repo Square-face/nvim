@@ -13,31 +13,24 @@ local rep = require("luasnip.extras").rep
 return {
 
     -- Equations
-    s({ trig = "eq", dscr = "Equation block" },
-        fmta([[
+    s(
+        { trig = "eq", dscr = "Equation block" },
+        fmta(
+            [[
                \begin{equation*}
                    <>
                \end{equation*}
              ]],
-            { i(1) })
-    ),
-
-    s({ trig = "ff", dscr = "Fractions" },
-        fmta("\\frac{<>}{<>}",
-            { i(1), i(2) }
+            { i(1) }
         )
     ),
 
+    s({ trig = "ff", dscr = "Fractions" }, fmta("\\frac{<>}{<>}", { i(1), i(2) })),
+
     -- Symbols
-    s({ trig = ";a", snippetType = "autosnippet" },
-        { t("\\alpha") }
-    ),
+    s({ trig = ";a", snippetType = "autosnippet" }, { t("\\alpha") }),
 
-    s({ trig = ";b", snippetType = "autosnippet" },
-        { t("\\beta") }
-    ),
+    s({ trig = ";b", snippetType = "autosnippet" }, { t("\\beta") }),
 
-    s({ trig = ";g", snippetType = "autosnippet" },
-        { t("\\gamma") }
-    ),
+    s({ trig = ";g", snippetType = "autosnippet" }, { t("\\gamma") }),
 }

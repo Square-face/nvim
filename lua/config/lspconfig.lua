@@ -15,7 +15,9 @@ lspc.config = function()
         },
     })
 
-    require("lsp.harper")
+    -- require("lsp.harper")
+
+    -- vim.lsp.enable('nil_ls')
 
     local map = require("core.utils").map
 
@@ -24,6 +26,21 @@ lspc.config = function()
     map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Use code acion" })
     map("n", "<C-j>", function() vim.diagnostic.jump({ count = 1 }) end, { desc = "Jump to next diagnostic" })
     map("n", "<C-k>", function() vim.diagnostic.jump({ count = -1 }) end, { desc = "Jump to previous diagnostic" })
+
+    if vim.g.nix then
+        local servers = require("config.lsp.servers")
+
+        for k, v in pairs(servers) do
+            if type(k) == "number" and type(v) == "string" then
+                vim.lsp.enable(v)
+            elseif type(k) == "string" and type(v) == "table" then
+                vim.lsp.config[k] = v
+                vim.lsp.enable(k)
+            else
+                vim.notify_once("Invalid server config", vim.log.levels.ERROR)
+            end
+        end
+    end
 end
 
 return lspc

@@ -1,7 +1,7 @@
 local ba = {}
 ba.opts = {}
 ba.config = function()
-    local map = require('core.utils').map
+    local map = require("core.utils").map
 
     map("n", "<A-.>", "<Cmd>BufferNext<CR>", { desc = "Switch to next tab" })
     map("n", "<A-,>", "<Cmd>BufferPrevious<CR>", { desc = "Switch to previous tab" })
@@ -25,7 +25,7 @@ ba.config = function()
 
     map("n", "<A-->", "<Cmd>BufferClose<CR>", { desc = "Close buffer" })
 
-    require('barbar').setup({})
+    require("barbar").setup({})
 end
 
 return ba

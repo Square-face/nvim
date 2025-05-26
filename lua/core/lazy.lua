@@ -21,4 +21,20 @@ require("lazy").setup({
     spec = {
         { import = "plugins" },
     },
+    change_detection = { notify = false },
+    performance = {
+        cache = { enabled = true },
+        rtp = {
+            disabled_plugins = {
+                "gzip",
+                "tarPlugin",
+                "tohtml",
+                "zipPlugin",
+                "shada",
+                "matchparen",
+                "netrw",
+                "rrhelper",
+            },
+        },
+    },
 })

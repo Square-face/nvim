@@ -1,7 +1,5 @@
 local mason = {}
 
-mason.opts = { PATH = "append" }
-
 mason.config = function(_, opts)
     require("mason").setup(opts)
 
