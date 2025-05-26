@@ -96,4 +96,21 @@ local jdtls = {
     end
 }
 
-return { lspconfig, mason, trouble, lazydev, jdtls }
+local vimtex = {
+    "lervag/vimtex",
+    cond = vim.fn.executable('latexmk') == 1,
+    init = function ()
+        vim.g.vimtex_view_method = "zathura"
+    end
+}
+
+local texpresso = {
+    "let-def/texpresso.vim",
+    name = "texpresso",
+    cond = vim.fn.executable('texpresso') == 1,
+    config = function()
+        require('texpresso').texpresso_path = vim.fn.exepath('texpresso')
+    end
+}
+
+return { lspconfig, mason, trouble, lazydev, jdtls, vimtex, texpresso }
