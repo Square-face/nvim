@@ -12,4 +12,7 @@ return {
             },
         },
     },
+    ["basedpyright"] = {
+
+    }
 }

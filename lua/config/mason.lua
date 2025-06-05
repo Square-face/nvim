@@ -3,13 +3,17 @@ local mason = {}
 mason.config = function(_, opts)
     require("mason").setup(opts)
 
-    local packages = require("mason-registry").get_installed_packages()
-    for _, pkg in pairs(packages) do
-        if pkg.spec.neovim == nil then
-            vim.lsp.enable(pkg.name)
-        else
-            vim.lsp.enable(pkg.spec.neovim.lspconfig)
-        end
+    local lspconfig = require("lspconfig")
+    local mason_lspconfig = require("mason-lspconfig")
+
+    -- Use all installed servers by Mason
+    mason_lspconfig.setup()
+
+    -- Get a list of all installed servers
+    local servers = mason_lspconfig.get_installed_servers()
+
+    for _, server_name in ipairs(servers) do
+        lspconfig[server_name].setup({})
     end
 end
 
