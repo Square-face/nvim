@@ -84,6 +84,9 @@ plug.opts = function()
                 ellipsis_char = "...",
             }),
         },
+        completion = {
+            throttle = 50,
+        }
     }
 end
 

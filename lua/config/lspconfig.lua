@@ -7,6 +7,7 @@ lspc.config = function()
         [vim.diagnostic.severity.HINT] = "󰌶",
         [vim.diagnostic.severity.INFO] = "",
     }
+
     vim.diagnostic.config({
         update_in_insert = true,
         severity_sort = true,

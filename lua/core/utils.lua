@@ -25,4 +25,10 @@ function M.nmap(lhs, rhs, opts)
     M.map("n", lhs, rhs, opts)
 end
 
+vim.api.nvim_create_autocmd({ "BufEnter", nil }, {
+    callback = function()
+        vim.cmd("filetype detect")
+    end
+})
+
 return M
