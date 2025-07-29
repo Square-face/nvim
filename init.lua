@@ -1,11 +1,8 @@
-local fd_os_release = assert(io.open("/etc/os-release", "r"))
-local s_os_release = fd_os_release:read("*a")
-fd_os_release:close()
-s_os_release = s_os_release:lower()
-local is_nixos = s_os_release:match("nixos")
-
-vim.g.nix = is_nixos == "nixos"
-
-require("core.opts")
-require("core.keymaps")
-require("core.lazy")
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.swapfile = false
+vim.o.smartindent = true
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.signcolumn = number
