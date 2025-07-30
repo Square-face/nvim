@@ -21,11 +21,11 @@ require("lazy").setup({
   spec = {
     { import = "plugs" },
   },
-  install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "catppuccin-mocha" } },
   checker = { enabled = true },
   ui = {
       border = "rounded",
       title = "Plugins"
   },
-  change_detection = {enabled = false}
+  change_detection = { enabled = false }
 })
