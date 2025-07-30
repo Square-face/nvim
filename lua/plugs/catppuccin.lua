@@ -5,11 +5,11 @@ return {
     opts = {
         -- Disable any integrations
         default_integrations = false,
-        -- Setup some custom colors
         custom_highlights = function(colors)
-            return {
-                -- Transparent statusline
-                StatusLine = {bg = "NONE"}
+            return{
+                LineNr = {fg=colors.subtext1},
+                LineNrAbove = {fg = colors.overlay0},
+                LineNrBelow = {fg = colors.overlay0}
             }
         end
     },
