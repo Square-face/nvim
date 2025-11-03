@@ -13,4 +13,6 @@ vim.lsp.config('lua_ls', {
   },
 })
 
+print("bober")
+
 vim.lsp.enable('lua_ls')

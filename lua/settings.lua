@@ -16,4 +16,9 @@ vim.o.foldlevel = 99
 vim.o.foldlevelstart = 2
 vim.o.foldtext = ""
 
+vim.o.spell = true
+vim.o.spelllang = "en"
+
+vim.o.exrc = true
+
 vim.o.completeopt = 'fuzzy,menuone,noselect,popup'
